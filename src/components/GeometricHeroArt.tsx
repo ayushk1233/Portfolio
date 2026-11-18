@@ -44,9 +44,9 @@ export function GeometricHeroArt() {
             <img
               src={portraitSrc}
               alt="Ayush Kumar — AI/ML Engineer"
-              width={764}
-              height={880}
-              className="h-full w-full object-cover object-top contrast-[1.03] saturate-[0.9] transition-all duration-300 hover:saturate-100"
+              width={747}
+              height={1000}
+              className="h-full w-full object-cover object-[50%_20%] contrast-[1.03] saturate-[0.9] transition-all duration-300 hover:saturate-100"
               loading="eager"
               decoding="async"
             />

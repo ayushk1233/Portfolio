@@ -3,6 +3,7 @@ export type ProjectIllustrationType =
   | "speech-dubbing"
   | "multi-agent-rag"
   | "diarizbench"
+  | "gptease-benchmark"
   | "agent-lab";
 
 export interface ProjectMetric {
@@ -400,8 +401,101 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
-    slug: "agent-lab",
+    slug: "gptease-benchmark",
     index: "05",
+    title: "GPTease ConvoRealism Benchmark",
+    period: "2026",
+    category: "LLM EVALUATION / BENCHMARKING",
+    shortDescription:
+      "Open-source 15-dimension conversational realism benchmark across 7 LLMs with hybrid judge routing, realism ceilings, and multiplicative penalty cascades.",
+    tags: ["Python", "Asyncio", "LLM-as-Judge", "Pydantic"],
+    stack: [
+      "Python",
+      "Asyncio",
+      "Pydantic",
+      "Typer",
+      "OpenRouter",
+      "Together AI",
+      "Featherless",
+      "Tenacity",
+      "YAML Config",
+    ],
+    illustration: "gptease-benchmark",
+    githubUrl: "https://github.com/ayushk1233/gptease-benchmark",
+    highlightStat: "7 models · 15 dims · +6.81 bias found",
+    problem:
+      "Standard LLM benchmarks measure coding, math, and MMLU recall—not whether a model sounds like a real person in emotionally nuanced conversation. Naive LLM judges also reward verbose, theatrical prose over authentic dialogue and suffer from unmeasured self-preference bias.",
+    solution:
+      "Built ConvoRealism for the GPTease platform: a modular, YAML-driven async evaluation pipeline scoring 7 open-source LLMs across 15 dimensions (rule-based detectors, structural/lexical heuristics, and hybrid-routed LLM judges), combining a Realism Ceiling with multiplicative penalty cascades onto a normalized 20–100 leaderboard scale.",
+    architecture: {
+      overview:
+        "Externalized YAML configs drive multi-provider async generation, 3-tier hybrid evaluation, response-hash judge caching, and cascading score aggregation into JSON, Markdown, and CSV reports.",
+      stages: [
+        {
+          step: "01",
+          name: "Multi-Turn Prompt Builder & Classifier",
+          detail:
+            "Loads multi-turn JSONL prompts, strips generation markers to prevent payload leakage, and classifies prompt genres to set context-appropriate length windows.",
+        },
+        {
+          step: "02",
+          name: "Async Multi-Provider Inference Engine",
+          detail:
+            "Dispatches semaphore-throttled calls across OpenRouter, Together AI, and Featherless with exponential backoff, EMPTY_STOP failure caching, and full payload diagnostics.",
+        },
+        {
+          step: "03",
+          name: "15-Dimension Hybrid Evaluator Stack",
+          detail:
+            "Combines deterministic rule-based detectors (refusal, repetition, AI signature, immersion break), lexical heuristics (entropy, verbosity, cringe), and cross-routed LLM judges.",
+        },
+        {
+          step: "04",
+          name: "Realism Ceiling, Penalty Cascade & Reports",
+          detail:
+            "Caps prose quality when conversational naturalness or dynamic reactivity drops below 3.0, cascades multiplicative failure penalties, and exports normalized 20–100 leaderboards.",
+        },
+      ],
+    },
+    engineeringDecisions: [
+      {
+        title: "Realism Ceiling Over Prose Density",
+        detail:
+          "Elevated conversational_naturalness (12%), dynamic_reactivity (12%), and anti_ai_tone (11%) to dominant weights and gated prose dimensions behind them—preventing theatrical RP monologues from outranking authentic human-like replies.",
+      },
+      {
+        title: "Cross-Model Hybrid Judge Routing",
+        detail:
+          "Empirically measured +6.81 points of self-preference inflation when DeepSeek-V4-Pro judged itself (86.87 vs 80.06 under neutral Kimi-K2.6), leading to per-model judge routing overrides and strict JSON judge hardening.",
+      },
+      {
+        title: "Cost & Failure Isolation in Evaluation",
+        detail:
+          "Cached judge evaluations by (response_hash, judge_model_id, scoring_config_hash) and excluded EMPTY_STOP generations from leaderboard averages—completing 5 runs and 200+ evaluations for ~$3.50 total spend.",
+      },
+    ],
+    tradeoffs: [
+      {
+        title: "Neutral Judge Selection vs. Content Filters",
+        detail:
+          "Standard neutral judges refuse explicit evaluation prompts while self-judging inflates scores by +6.81 points; cross-routing open/frontier judges mitigates bias until a human-annotated domain judge is trained.",
+      },
+      {
+        title: "Sequential Multi-Dimension Judging vs. Throughput",
+        detail:
+          "Running 8+ LLM-judge calls per response makes judge API calls ~96% of total spend and bounds throughput via semaphore throttling, traded intentionally for granular per-dimension diagnostics.",
+      },
+    ],
+    verifiedResults: [
+      { value: "84.21", label: "Top score — Kimi-K2.6 (25/25 completions, 9.9s avg)" },
+      { value: "+6.81 pts", label: "Measured LLM-judge self-preference bias (DeepSeek)" },
+      { value: "80.71 / 8B", label: "Lunaris-8B outscored Euryale-70B (78.45) at 19× lower cost" },
+      { value: "200+ Evals", label: "7 models · 15 dimensions · 5 runs · ~$3.50 total spend" },
+    ],
+  },
+  {
+    slug: "agent-lab",
+    index: "06",
     title: "AgentLab (Agent Reliability Lab)",
     period: "Coming Soon · V1 Roadmap",
     category: "AGENTIC EVALS / COMING SOON",

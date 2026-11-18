@@ -185,6 +185,66 @@ export function ProjectIllustration({
     );
   }
 
+  if (type === "gptease-benchmark") {
+    return (
+      <svg
+        viewBox="0 0 380 200"
+        className={`h-full w-full ${className}`}
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-label="15-dimension hybrid evaluation and leaderboard diagram for GPTease ConvoRealism Benchmark"
+      >
+        {/* Left: 3-tier Evaluator Stack */}
+        <rect x="18" y="20" width="124" height="36" fill="#EFEFEA" stroke="#292929" strokeWidth="1.25" />
+        <text x="26" y="34" fontFamily="var(--font-geist-mono), monospace" fontSize="7" fill="#626262">TIER 01 // RULE-BASED</text>
+        <text x="26" y="48" fontFamily="var(--font-geist-mono), monospace" fontSize="8.5" fontWeight="700" fill="#171717">REFUSAL · AI-TELLS</text>
+
+        <rect x="18" y="64" width="124" height="36" fill="#EFEFEA" stroke="#292929" strokeWidth="1.25" />
+        <text x="26" y="78" fontFamily="var(--font-geist-mono), monospace" fontSize="7" fill="#626262">TIER 02 // HEURISTIC</text>
+        <text x="26" y="92" fontFamily="var(--font-geist-mono), monospace" fontSize="8.5" fontWeight="700" fill="#171717">ENTROPY · VERBOSITY</text>
+
+        <rect x="18" y="108" width="124" height="44" fill="#171717" stroke="#292929" strokeWidth="1.5" />
+        <text x="26" y="122" fontFamily="var(--font-geist-mono), monospace" fontSize="7" fill="#C7FF35">TIER 03 // CROSS-JUDGE</text>
+        <text x="26" y="136" fontFamily="var(--font-geist-mono), monospace" fontSize="8.5" fontWeight="700" fill="#F8F7F2">REALISM · REACTIVITY</text>
+        <text x="26" y="146" fontFamily="var(--font-geist-mono), monospace" fontSize="6.8" fill="#EFEFEA">AVOID SELF-BIAS (+6.81)</text>
+
+        {/* Connectors to Leaderboard */}
+        <path d="M142 38 H162 V84 H178" stroke="#292929" strokeWidth="1.25" />
+        <path d="M142 82 H178" stroke="#292929" strokeWidth="1.25" />
+        <path d="M142 130 H162 V84" stroke="#292929" strokeWidth="1.25" />
+
+        {/* Right: Realism Ceiling + Leaderboard */}
+        <rect x="178" y="20" width="184" height="34" fill="#C7FF35" stroke="#292929" strokeWidth="1.5" />
+        <text x="186" y="34" fontFamily="var(--font-geist-mono), monospace" fontSize="7.5" fontWeight="700" fill="#171717">REALISM CEILING + PENALTY</text>
+        <text x="186" y="46" fontFamily="var(--font-geist-mono), monospace" fontSize="7.5" fill="#171717">15 DIMS → [20–100] SCALE</text>
+
+        <rect x="178" y="64" width="184" height="88" fill="#F8F7F2" stroke="#292929" strokeWidth="1.5" />
+        <text x="186" y="79" fontFamily="var(--font-geist-mono), monospace" fontSize="7.5" fontWeight="700" fill="#171717">7-MODEL LEADERBOARD (200+ EVALS)</text>
+
+        <text x="186" y="96" fontFamily="var(--font-geist-mono), monospace" fontSize="7.5" fill="#171717">KIMI-K2.6</text>
+        <rect x="246" y="88" width="76" height="9" fill="#C7FF35" stroke="#292929" strokeWidth="1" />
+        <text x="328" y="96" fontFamily="var(--font-geist-mono), monospace" fontSize="7.5" fontWeight="700" fill="#171717">84.2</text>
+
+        <text x="186" y="112" fontFamily="var(--font-geist-mono), monospace" fontSize="7.5" fill="#171717">LUNARIS-8B</text>
+        <rect x="246" y="104" width="70" height="9" fill="#171717" />
+        <text x="328" y="112" fontFamily="var(--font-geist-mono), monospace" fontSize="7.5" fill="#171717">80.7</text>
+
+        <text x="186" y="128" fontFamily="var(--font-geist-mono), monospace" fontSize="7.5" fill="#626262">CYDONIA-24B</text>
+        <rect x="246" y="120" width="66" height="9" fill="#626262" />
+        <text x="328" y="128" fontFamily="var(--font-geist-mono), monospace" fontSize="7.5" fill="#171717">79.6</text>
+
+        <text x="186" y="144" fontFamily="var(--font-geist-mono), monospace" fontSize="7.5" fill="#626262">EURYALE-70B</text>
+        <rect x="246" y="136" width="63" height="9" fill="#626262" />
+        <text x="328" y="144" fontFamily="var(--font-geist-mono), monospace" fontSize="7.5" fill="#171717">78.5</text>
+
+        <line x1="18" y1="168" x2="362" y2="168" stroke="#292929" strokeWidth="1" />
+        <text x="18" y="184" fontFamily="var(--font-geist-mono), monospace" fontSize="8.5" fill="#626262">OPENROUTER · TOGETHER · FEATHERLESS</text>
+        <text x="362" y="184" textAnchor="end" fontFamily="var(--font-geist-mono), monospace" fontSize="8.5" fontWeight="600" fill="#171717">~$3.50 TOTAL</text>
+      </svg>
+    );
+  }
+
   if (type === "agent-lab") {
     return (
       <svg

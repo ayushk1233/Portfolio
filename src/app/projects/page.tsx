@@ -25,7 +25,7 @@ export default function ProjectsPage() {
               index="01"
               label="/ SELECTED WORK"
               title="Systems built & measured in production."
-              aside="5 SYSTEMS · 4 SHIPPED · 1 COMING SOON"
+              aside="6 SYSTEMS · 5 SHIPPED · 1 COMING SOON"
             />
           </div>
 
