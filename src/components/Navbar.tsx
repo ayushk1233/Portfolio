@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
+import { SocialIconRow } from "@/components/SocialIcons";
 import { NAV_ITEMS, SITE_CONFIG } from "@/data/site";
 import { withBasePath } from "@/lib/paths";
 
@@ -85,20 +86,9 @@ export function Navbar() {
           })}
         </div>
 
-        {/* Right: External links */}
+        {/* Right: Gmail, GitHub, LinkedIn icons + Resume button */}
         <div className="hidden items-center gap-2 md:flex">
-          <a
-            href={SITE_CONFIG.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-flex h-9 items-center gap-1 border border-border bg-bg px-3 font-mono text-xs font-medium text-ink transition-colors duration-200 hover:bg-surface"
-          >
-            <span>GitHub</span>
-            <ArrowUpRight
-              className="arrow-shift arrow-shift-up-right h-3.5 w-3.5"
-              aria-hidden="true"
-            />
-          </a>
+          <SocialIconRow size="md" />
           <a
             href={resumeHref}
             target="_blank"
@@ -159,23 +149,14 @@ export function Navbar() {
                 </Link>
               );
             })}
-            <div className="grid grid-cols-2 gap-3 py-4">
-              <a
-                href={SITE_CONFIG.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setMobileOpen(false)}
-                className="inline-flex h-11 items-center justify-center gap-1.5 border border-border bg-surface font-mono text-xs font-medium text-ink"
-              >
-                <span>GitHub</span>
-                <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
-              </a>
+            <div className="flex items-center justify-between gap-3 py-4">
+              <SocialIconRow size="md" />
               <a
                 href={resumeHref}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileOpen(false)}
-                className="inline-flex h-11 items-center justify-center gap-1.5 border border-border bg-lime font-mono text-xs font-semibold text-ink"
+                className="inline-flex h-9 flex-1 items-center justify-center gap-1.5 border border-border bg-lime font-mono text-xs font-semibold text-ink"
               >
                 <span>Resume</span>
                 <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />

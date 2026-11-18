@@ -9,7 +9,7 @@ import {
 } from "@/data/personal";
 import { withBasePath } from "@/lib/paths";
 
-const FEATURED_COUNT = 5;
+const FEATURED_COUNT = 6;
 
 export function BeyondCode() {
   const [showAll, setShowAll] = useState(false);
@@ -103,12 +103,8 @@ export function BeyondCode() {
         ))}
       </ul>
 
-      {/* Compact, aesthetic contact-sheet photo strip */}
-      <div
-        className={`grid grid-cols-2 gap-3 sm:grid-cols-3 ${
-          showAll ? "md:grid-cols-4 lg:grid-cols-6" : "lg:grid-cols-5"
-        }`}
-      >
+      {/* 4-column grid: default 6 photos (4 + 2 with balanced Show All card), expanded 12 photos (3 rows of 4) */}
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
         {visiblePhotos.map((photo, idx) => (
           <button
             key={photo.id}
@@ -117,7 +113,7 @@ export function BeyondCode() {
             className="group flex flex-col border border-border bg-bg text-left transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[3px_3px_0_0_#292929]"
             aria-label={`View photo ${photo.index}: ${photo.tag}`}
           >
-            <div className="aspect-[3/4] w-full overflow-hidden bg-surface">
+            <div className="aspect-[4/4.6] w-full overflow-hidden bg-surface">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={withBasePath(photo.src)}
@@ -141,23 +137,46 @@ export function BeyondCode() {
             </div>
           </button>
         ))}
+
+        {/* Balanced 2-column Show All tile completing row 2 when only 6 are shown */}
+        {!showAll ? (
+          <button
+            type="button"
+            onClick={() => setShowAll(true)}
+            className="group col-span-2 flex flex-col justify-between border border-dashed border-border bg-surface/60 bg-swiss-grid p-5 text-left transition-all duration-200 hover:border-solid hover:bg-lime hover:shadow-[3px_3px_0_0_#292929]"
+          >
+            <div className="flex items-center justify-between font-mono text-[10px] tracking-[0.14em] text-muted uppercase group-hover:text-ink">
+              <span>+06 MORE FRAMES</span>
+              <span className="inline-flex h-7 w-7 items-center justify-center border border-border bg-bg text-ink">
+                <Plus className="h-4 w-4" aria-hidden="true" />
+              </span>
+            </div>
+
+            <div className="my-6">
+              <p className="font-mono text-xl font-bold tracking-tight text-ink sm:text-2xl">
+                Show All ({BEYOND_PHOTOS.length})
+              </p>
+              <p className="mt-1.5 font-mono text-[11px] leading-relaxed text-muted group-hover:text-ink/80">
+                Swimming, rafting, palace halls, misty mountain roads &amp;
+                sunsets.
+              </p>
+            </div>
+
+            <div className="flex items-center justify-between border-t border-border/50 pt-2.5 font-mono text-[10px] font-semibold tracking-wider text-ink uppercase">
+              <span>3 ROWS × 4 GRID</span>
+              <span>EXPAND →</span>
+            </div>
+          </button>
+        ) : null}
       </div>
 
-      {/* Subtle footer bar with quick toggle */}
-      <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-border/50 pt-3 font-mono text-[10px] tracking-[0.12em] text-muted uppercase">
+      {/* Minimal status note (no duplicate "View all" link) */}
+      <div className="mt-4 flex items-center justify-between font-mono text-[10px] tracking-[0.12em] text-muted uppercase">
         <span>
-          SHOWING {visiblePhotos.length} OF {BEYOND_PHOTOS.length} FRAMES · CLICK
-          ANY TO EXPAND
+          SHOWING {visiblePhotos.length} OF {BEYOND_PHOTOS.length} FRAMES ·
+          CLICK ANY TO EXPAND
         </span>
-        <button
-          type="button"
-          onClick={() => setShowAll((prev) => !prev)}
-          className="font-semibold text-ink underline decoration-border underline-offset-4 transition-colors duration-200 hover:bg-lime"
-        >
-          {showAll
-            ? `Collapse to top ${FEATURED_COUNT}`
-            : `View all ${BEYOND_PHOTOS.length} photos →`}
-        </button>
+        <span>4 PER ROW</span>
       </div>
 
       {/* Minimal Swiss lightbox modal */}

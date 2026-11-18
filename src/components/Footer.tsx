@@ -1,10 +1,11 @@
 import Link from "next/link";
+import { SocialIconRow } from "@/components/SocialIcons";
 import { SITE_CONFIG } from "@/data/site";
 
 export function Footer() {
   return (
     <footer className="border-t border-border bg-surface">
-      <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-7 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
         <div className="flex flex-wrap items-center gap-x-4 gap-y-1 font-mono text-xs text-muted">
           <Link
             href="/"
@@ -21,8 +22,8 @@ export function Footer() {
           <span>{SITE_CONFIG.location}</span>
         </div>
 
-        <div className="flex flex-wrap items-center gap-x-5 gap-y-1 font-mono text-xs text-muted">
-          <span>STATIC BUILD · NEXT.JS</span>
+        <div className="flex flex-wrap items-center gap-4 font-mono text-xs text-muted">
+          <SocialIconRow size="sm" />
           <a
             href="#top"
             className="text-ink underline decoration-border underline-offset-4 transition-colors duration-200 hover:bg-lime"

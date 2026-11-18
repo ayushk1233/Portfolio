@@ -12,7 +12,7 @@ const DIRECTORY_LINKS = [
     index: "01",
     label: "PROJECTS",
     title: "Selected Work & Case Studies",
-    detail: "Architecture, tradeoffs, and verified results across 3 systems.",
+    detail: "Architecture, tradeoffs, and results across 5 AI/ML systems.",
     href: "/projects",
   },
   {

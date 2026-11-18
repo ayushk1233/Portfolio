@@ -1,4 +1,9 @@
-export type ProjectIllustrationType = "agent-monitor" | "speech-dubbing" | "multi-agent-rag";
+export type ProjectIllustrationType =
+  | "agent-monitor"
+  | "speech-dubbing"
+  | "multi-agent-rag"
+  | "diarizbench"
+  | "agent-lab";
 
 export interface ProjectMetric {
   value: string;
@@ -15,11 +20,14 @@ export interface Project {
   tags: string[];
   stack: string[];
   illustration: ProjectIllustrationType;
-  githubUrl: string;
+  githubUrl?: string;
   liveUrl?: string;
+  liveLabel?: string;
+  comingSoon?: boolean;
   highlightStat: string;
   problem: string;
   solution: string;
+  cliPreview?: string[];
   architecture: {
     overview: string;
     stages: {
@@ -295,6 +303,197 @@ export const PROJECTS: Project[] = [
       { value: "200", label: "Questions in controlled evaluation benchmark" },
       { value: "4 Agents", label: "Decomposition, retrieval, synthesis, critique" },
       { value: "Live SSE", label: "Per-agent latency & token telemetry stream" },
+    ],
+  },
+  {
+    slug: "diarizbench",
+    index: "04",
+    title: "DiarizBench",
+    period: "Nov 2026",
+    category: "SPEECH AI / BENCHMARKING",
+    shortDescription:
+      "Reproducible multilingual speaker-diarization pilot and leaderboard methodology across 24 recordings, 7 languages, and 3 systems.",
+    tags: ["Python", "Pyannote", "Nemotron-3", "Anuvani"],
+    stack: [
+      "Python 3.11",
+      "pyannote.metrics",
+      "dscore",
+      "CIIL Anuvani",
+      "pyannote community-1",
+      "NVIDIA Nemotron-3",
+      "Kaggle T4 ×2",
+      "Bootstrap CI",
+    ],
+    illustration: "diarizbench",
+    githubUrl: "https://github.com/ayushk1233/DiarizBench-",
+    liveUrl: "https://www.loom.com/share/8b679c3b23484febb68818ec3cf86945",
+    liveLabel: "Loom Walkthrough",
+    highlightStat: "72 runs · 7 languages · 13.8% DER",
+    problem:
+      "Headline Diarization Error Rate (DER) numbers routinely hide critical real-world failures: brief participants who get dropped entirely, overlapping speech, mixed offline vs. streaming operating modes, and corpus annotation mismatches across English and Indic languages.",
+    solution:
+      "Built a reproducible multilingual speaker-diarization pilot (24 source recordings across Indic DiarBench, AMI, and VoxConverse; 7 languages; 72 completed inference units across CIIL Anuvani, pyannote community-1, and NVIDIA Nemotron-3) paired with frozen scoring contracts, paired bootstrap confidence intervals, a low-activity speaker recall diagnostic, and an inspectable product leaderboard design.",
+    architecture: {
+      overview:
+        "Decoupled Kaggle GPU inference, local deterministic scoring (zero collar primary + 0.25s collar sensitivity), statistical uncertainty analysis, and an audio-free inspectable leaderboard UI.",
+      stages: [
+        {
+          step: "01",
+          name: "Manifest & Consent-Safe Data Contract",
+          detail:
+            "Canonical 16 kHz mono WAV manifest spanning 12 Indic DiarBench recordings (Hindi, Bengali, Marathi, Tamil, Telugu, Kannada), 6 AMI meetings, and 6 VoxConverse recordings with decoded-PCM checksums and zero audio committed to Git.",
+        },
+        {
+          step: "02",
+          name: "Checkpointed Kaggle GPU Runner",
+          detail:
+            "Resumable 2×T4 runner executes 72 system/recording units plus a fixed 6-recording timing panel, persisting RTTM hypotheses, timing logs, and execution metadata.",
+        },
+        {
+          step: "03",
+          name: "Frozen Scoring & Coverage Diagnostics",
+          detail:
+            "Scores DER (0-collar primary and c=0.25s), JER, exact speaker count accuracy, and low-activity speaker recall (≤5% speaking time, ≥0.5s speech) with scorer unit tests and independent dscore reference checks.",
+        },
+        {
+          step: "04",
+          name: "Uncertainty Analysis & Inspectable Product UI",
+          detail:
+            "Computes paired bootstrap 95% confidence intervals and renders an interactive leaderboard design covering model comparison, recording-level turn timelines, methodology, and a proposed 60-hour collection spec.",
+        },
+      ],
+    },
+    engineeringDecisions: [
+      {
+        title: "Zero-Collar DER Primary + Low-Activity Recall Diagnostic",
+        detail:
+          "Kept zero-collar DER as the primary metric alongside exact speaker count and low-activity recall, exposing that Nemotron-3 streaming achieved higher exact-count accuracy (58%) and low-activity recall (61%) even where Anuvani led in offline DER (13.8%).",
+      },
+      {
+        title: "Strict Separation of Offline vs. Streaming Modes",
+        detail:
+          "Refused to collapse offline and streaming systems into a single misleading rank, explicitly labeling operating mode and timed callable scope alongside every RTF measurement.",
+      },
+      {
+        title: "Transparent Evidence Boundaries",
+        detail:
+          "Documented corpus confounding, public-corpus exposure, and non-equivalence under confidence intervals rather than overclaiming a universal leaderboard from a 24-recording pilot.",
+      },
+    ],
+    tradeoffs: [
+      {
+        title: "Pilot Scope vs. Full 60-Hour Production Benchmark",
+        detail:
+          "A 24-recording multilingual pilot validates the scoring contract, failure modes, and UI design immediately, while deferring the proposed 60-hour (12h public dev / 48h private eval) collection to future execution.",
+      },
+      {
+        title: "No Embedded Audio in Public Repo vs. Instant Web Playback",
+        detail:
+          "Excluding raw corpus audio honors dataset licenses and consent terms; reviewers inspect turn timelines directly and can load local permitted WAV files in the listening-room UI.",
+      },
+    ],
+    verifiedResults: [
+      { value: "13.8% DER", label: "CIIL Anuvani offline (0-collar, 95% CI [10.0, 17.9])" },
+      { value: "58% / 61%", label: "Nemotron-3 exact speaker count & low-activity recall" },
+      { value: "72 Runs", label: "24 recordings × 3 systems across 7 languages" },
+      { value: "0.053 RTF", label: "Fixed 6-recording timing panel (Anuvani offline)" },
+    ],
+  },
+  {
+    slug: "agent-lab",
+    index: "05",
+    title: "AgentLab (Agent Reliability Lab)",
+    period: "Coming Soon · V1 Roadmap",
+    category: "AGENTIC EVALS / COMING SOON",
+    shortDescription:
+      "Open-source local-first testing, tracing, RAG benchmarking, and regression release engineering toolkit for AI agents.",
+    tags: ["Python", "LangGraph", "OpenTelemetry", "Pytest"],
+    stack: [
+      "Python",
+      "Typer",
+      "Pydantic",
+      "LangGraph",
+      "FastAPI",
+      "Pytest",
+      "OpenTelemetry",
+      "SQLite / PostgreSQL",
+    ],
+    illustration: "agent-lab",
+    comingSoon: true,
+    highlightStat: "Coming Soon · Open-Source Beta",
+    problem:
+      "A small change to an agent's prompt, embedding model, retrieval pipeline, or tool definitions can silently break previously working behavior. Teams need to know what changed, what failed, and whether a new version is ready to ship—without manually eyeballing answers.",
+    solution:
+      "AgentLab is being designed as a local-first open-source toolkit—and long-term AI Release Engineer—that lets developers connect LangGraph or plain-Python agents, run deterministic and calibrated evaluation suites, trace tool calls/tokens/latency, benchmark RAG retrieval, and catch regressions against saved baselines in CI.",
+    cliPreview: [
+      "agentlab init      # scaffold config, adapters & baseline fixtures",
+      "agentlab test      # run evals, RAG metrics & trace capture locally",
+      "agentlab report    # diff against baseline & export JSON/HTML failure report",
+    ],
+    architecture: {
+      overview:
+        "Planned Version 1 open-source beta focused on CLI, Python SDK, reproducible evaluation, tracing, and baseline regression diffing before adding any hosted or dashboard layers.",
+      stages: [
+        {
+          step: "01",
+          name: "Python SDK & CLI Adapters",
+          detail:
+            "Lightweight adapter interface connecting LangGraph and plain-Python agents with minimal integration overhead via `agentlab init`, `test`, and `report`.",
+        },
+        {
+          step: "02",
+          name: "Evaluation & RAG Benchmarking Engine",
+          detail:
+            "Runs developer-supplied test cases scoring grounding, citations, tool selection, and retrieval quality (Recall@K, MRR, nDCG) across chunking, embeddings, and rerankers.",
+        },
+        {
+          step: "03",
+          name: "OpenTelemetry Tracing & Failure Taxonomy",
+          detail:
+            "Captures agent steps, tool calls, errors, latency, and token usage, categorizing failures (retrieval misses, unsupported claims, tool errors, timeouts) linked directly to traces.",
+        },
+        {
+          step: "04",
+          name: "Baseline Regression Diffing & CI Gates",
+          detail:
+            "Compares candidate agent runs against saved baselines in SQLite/PostgreSQL, flags newly failing cases, and integrates directly into GitHub Actions release workflows.",
+        },
+      ],
+    },
+    engineeringDecisions: [
+      {
+        title: "Local-First & Zero Silent Data Collection",
+        detail:
+          "Designed to run locally via Python package or Docker with SQLite persistence and strictly opt-in trace sharing so sensitive user data is never collected by default.",
+      },
+      {
+        title: "CLI & Core Engine Before Dashboard",
+        detail:
+          "Immediate build priority is the CLI, evaluation engine, trace collection, and regression diffing—validated first on real systems like Competitor Intelligence Monitor and Multi-Agent RAG.",
+      },
+      {
+        title: "Honest Separation of Mocked Replay vs. Live Testing",
+        detail:
+          "Explicitly distinguishes recorded-tool mocked replay from live integration tests, recognizing that traces alone do not guarantee deterministic causality.",
+      },
+    ],
+    tradeoffs: [
+      {
+        title: "Tight V1 Scope vs. Hosted SaaS Platform",
+        detail:
+          "Deliberately keeping auto-fixes, autonomous deployments, and multi-tenant SaaS out of beta scope so the core open-source testing workflow becomes genuinely useful first.",
+      },
+      {
+        title: "Deterministic Checks + Calibrated Judges vs. Pure LLM Grading",
+        detail:
+          "Anchoring evaluations in Pytest deterministic assertions and IR metrics (Recall@K, MRR, nDCG) with optional calibrated LLM judges avoids noisy, opaque scoring.",
+      },
+    ],
+    verifiedResults: [
+      { value: "Phase 1", label: "Core beta: CLI, SDK, eval engine & basic traces" },
+      { value: "Phase 2", label: "RAG metrics, baseline regression diffs & CI checks" },
+      { value: "Local-First", label: "Python + Docker · SQLite / PostgreSQL · OTel" },
+      { value: "Open Source", label: "Roadmap & product spec — active build ahead" },
     ],
   },
 ];

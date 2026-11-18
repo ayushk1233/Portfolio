@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import { ComingSoonSign } from "@/components/ComingSoonSign";
 import { ProjectIllustration } from "@/components/ProjectIllustration";
 import { PROJECTS, getProjectBySlug } from "@/data/projects";
 
@@ -47,6 +48,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
 
   const currentIdx = PROJECTS.findIndex((p) => p.slug === project.slug);
   const nextProject = PROJECTS[(currentIdx + 1) % PROJECTS.length];
+  const isComingSoon = Boolean(project.comingSoon);
 
   return (
     <article className="bg-bg">
@@ -55,13 +57,14 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-3.5 font-mono text-xs sm:px-6 lg:px-8">
           <Link
             href="/projects"
-            className="group inline-flex items-center gap-2 font-medium text-ink transition-colors duration-200 hover:bg-lime px-1.5 py-0.5"
+            className="group inline-flex items-center gap-2 px-1.5 py-0.5 font-medium text-ink transition-colors duration-200 hover:bg-lime"
           >
             <ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" />
             <span>Back to Selected Work</span>
           </Link>
           <span className="text-muted">
-            CASE STUDY {project.index} / 0{PROJECTS.length} · {project.period}
+            {isComingSoon ? "ROADMAP" : "CASE STUDY"} {project.index} / 0
+            {PROJECTS.length} · {project.period}
           </span>
         </div>
       </div>
@@ -87,21 +90,40 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                 <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
                   {project.shortDescription}
                 </p>
+
+                {project.cliPreview ? (
+                  <div className="mt-6 border border-border bg-ink p-4 font-mono text-xs text-bg">
+                    <div className="mb-2 flex items-center justify-between border-b border-muted/40 pb-1.5 text-[10px] text-lime">
+                      <span>PLANNED CLI WORKFLOW</span>
+                      <span>LOCAL-FIRST BETA</span>
+                    </div>
+                    <pre className="overflow-x-auto leading-relaxed text-bg/95">
+                      {project.cliPreview.map((line) => `$ ${line}`).join("\n")}
+                    </pre>
+                  </div>
+                ) : null}
               </div>
 
               <div className="mt-8 flex flex-wrap items-center gap-3">
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group inline-flex h-11 items-center gap-2 border border-border bg-ink px-5 font-mono text-xs font-semibold tracking-wider text-bg uppercase transition-colors duration-200 hover:bg-lime hover:text-ink"
-                >
-                  <span>View Repository</span>
-                  <ArrowUpRight
-                    className="arrow-shift arrow-shift-up-right h-4 w-4"
-                    aria-hidden="true"
-                  />
-                </a>
+                {project.githubUrl ? (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex h-11 items-center gap-2 border border-border bg-ink px-5 font-mono text-xs font-semibold tracking-wider text-bg uppercase transition-colors duration-200 hover:bg-lime hover:text-ink"
+                  >
+                    <span>View Repository</span>
+                    <ArrowUpRight
+                      className="arrow-shift arrow-shift-up-right h-4 w-4"
+                      aria-hidden="true"
+                    />
+                  </a>
+                ) : (
+                  <span className="inline-flex h-11 items-center gap-2 border border-border bg-lime px-5 font-mono text-xs font-semibold tracking-wider text-ink uppercase">
+                    <span className="inline-block h-2 w-2 border border-border bg-ink" />
+                    <span>Open-Source Beta Coming Soon</span>
+                  </span>
+                )}
                 {project.liveUrl ? (
                   <a
                     href={project.liveUrl}
@@ -109,7 +131,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                     rel="noopener noreferrer"
                     className="group inline-flex h-11 items-center gap-2 border border-border bg-lime px-5 font-mono text-xs font-semibold tracking-wider text-ink uppercase transition-colors duration-200 hover:bg-ink hover:text-bg"
                   >
-                    <span>Live Demo</span>
+                    <span>{project.liveLabel ?? "Live Demo"}</span>
                     <ArrowUpRight
                       className="arrow-shift arrow-shift-up-right h-4 w-4"
                       aria-hidden="true"
@@ -119,24 +141,30 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
               </div>
             </div>
 
-            {/* Technical illustration */}
-            <div className="flex flex-col justify-between bg-surface/60 bg-swiss-grid p-5 sm:p-6 lg:col-span-5">
-              <div className="mb-3 flex items-center justify-between border-b border-border pb-2 font-mono text-[10px] tracking-[0.14em] text-muted uppercase">
-                <span>SYSTEM DIAGRAM</span>
-                <span>{project.period}</span>
+            {/* Right stage: Animated hanging wooden plywood sign for Coming Soon, or Technical Illustration */}
+            {isComingSoon ? (
+              <div className="flex flex-col justify-between bg-surface/60 lg:col-span-5">
+                <ComingSoonSign />
               </div>
-              <div className="my-auto aspect-[19/10] w-full">
-                <ProjectIllustration type={project.illustration} />
+            ) : (
+              <div className="flex flex-col justify-between bg-surface/60 bg-swiss-grid p-5 sm:p-6 lg:col-span-5">
+                <div className="mb-3 flex items-center justify-between border-b border-border pb-2 font-mono text-[10px] tracking-[0.14em] text-muted uppercase">
+                  <span>SYSTEM DIAGRAM</span>
+                  <span>{project.period}</span>
+                </div>
+                <div className="my-auto aspect-[19/10] w-full">
+                  <ProjectIllustration type={project.illustration} />
+                </div>
+                <div className="mt-3 border-t border-border pt-2 font-mono text-[10px] tracking-wider text-ink">
+                  HIGHLIGHT: {project.highlightStat}
+                </div>
               </div>
-              <div className="mt-3 border-t border-border pt-2 font-mono text-[10px] tracking-wider text-ink">
-                HIGHLIGHT: {project.highlightStat}
-              </div>
-            </div>
+            )}
           </div>
         </div>
       </header>
 
-      {/* Verified Results Strip */}
+      {/* Verified Results / Roadmap Milestones Strip */}
       <section
         className="border-b border-border bg-surface/60"
         aria-labelledby="results-heading"
@@ -146,7 +174,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
             id="results-heading"
             className="mb-5 font-mono text-xs font-semibold tracking-[0.16em] text-ink uppercase"
           >
-            / VERIFIED RESULTS
+            {isComingSoon ? "/ PLANNED ROADMAP & SCOPE" : "/ VERIFIED RESULTS"}
           </h2>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {project.verifiedResults.map((result, idx) => (
@@ -190,7 +218,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
           <div className="border border-border bg-bg p-6 sm:p-8">
             <div className="mb-4 flex items-center gap-2 border-b border-border pb-3 font-mono text-xs font-semibold tracking-[0.14em] text-ink uppercase">
               <span className="h-2 w-2 border border-border bg-lime" />
-              <span>02 / SOLUTION</span>
+              <span>{isComingSoon ? "02 / WHAT IT WILL DO" : "02 / SOLUTION"}</span>
             </div>
             <p className="text-sm leading-relaxed text-ink/90 sm:text-base">
               {project.solution}
@@ -208,7 +236,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
               id="architecture-heading"
               className="font-mono text-xs font-semibold tracking-[0.16em] text-ink uppercase"
             >
-              03 / ARCHITECTURE
+              {isComingSoon ? "03 / PLANNED ARCHITECTURE" : "03 / ARCHITECTURE"}
             </h2>
             <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted">
               {project.architecture.overview}
@@ -245,7 +273,9 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
           <div className="border border-border bg-bg lg:col-span-7">
             <div className="border-b border-border bg-surface px-6 py-4">
               <h2 className="font-mono text-xs font-semibold tracking-[0.16em] text-ink uppercase">
-                04 / ENGINEERING DECISIONS
+                {isComingSoon
+                  ? "04 / DESIGN PRINCIPLES"
+                  : "04 / ENGINEERING DECISIONS"}
               </h2>
             </div>
             <div className="divide-y divide-border">
@@ -283,7 +313,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
           </div>
         </section>
 
-        {/* Technology Stack & Repository */}
+        {/* Technology Stack & Repository / Status */}
         <section
           aria-labelledby="stack-heading"
           className="grid grid-cols-1 border border-border bg-bg lg:grid-cols-12"
@@ -293,7 +323,9 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
               id="stack-heading"
               className="font-mono text-xs font-semibold tracking-[0.16em] text-ink uppercase"
             >
-              06 / TECHNOLOGY STACK
+              {isComingSoon
+                ? "06 / PROPOSED TECHNICAL STACK"
+                : "06 / TECHNOLOGY STACK"}
             </h2>
             <ul className="mt-4 flex flex-wrap gap-2">
               {project.stack.map((tech) => (
@@ -308,30 +340,56 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
           </div>
 
           <div className="flex flex-col justify-between bg-surface/60 p-6 sm:p-8 lg:col-span-4">
-            <div>
-              <span className="font-mono text-[10px] tracking-[0.14em] text-muted uppercase">
-                SOURCE CODE
-              </span>
-              <p className="mt-2 font-mono text-xs break-all text-ink">
-                {project.githubUrl.replace("https://", "")}
-              </p>
-            </div>
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group mt-5 inline-flex h-11 items-center justify-center gap-2 border border-border bg-lime px-4 font-mono text-xs font-semibold tracking-wider text-ink uppercase transition-colors duration-200 hover:bg-ink hover:text-bg"
-            >
-              <span>Open on GitHub</span>
-              <ArrowUpRight
-                className="arrow-shift arrow-shift-up-right h-4 w-4"
-                aria-hidden="true"
-              />
-            </a>
+            {project.githubUrl ? (
+              <>
+                <div>
+                  <span className="font-mono text-[10px] tracking-[0.14em] text-muted uppercase">
+                    SOURCE CODE
+                  </span>
+                  <p className="mt-2 font-mono text-xs break-all text-ink">
+                    {project.githubUrl.replace("https://", "")}
+                  </p>
+                </div>
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group mt-5 inline-flex h-11 items-center justify-center gap-2 border border-border bg-lime px-4 font-mono text-xs font-semibold tracking-wider text-ink uppercase transition-colors duration-200 hover:bg-ink hover:text-bg"
+                >
+                  <span>Open on GitHub</span>
+                  <ArrowUpRight
+                    className="arrow-shift arrow-shift-up-right h-4 w-4"
+                    aria-hidden="true"
+                  />
+                </a>
+              </>
+            ) : (
+              <>
+                <div>
+                  <span className="font-mono text-[10px] tracking-[0.14em] text-muted uppercase">
+                    RELEASE STATUS
+                  </span>
+                  <p className="mt-2 font-mono text-xs leading-relaxed text-ink">
+                    Public repository &amp; CLI package launching with Version 1
+                    open-source beta.
+                  </p>
+                </div>
+                <Link
+                  href="/contact"
+                  className="group mt-5 inline-flex h-11 items-center justify-center gap-2 border border-border bg-lime px-4 font-mono text-xs font-semibold tracking-wider text-ink uppercase transition-colors duration-200 hover:bg-ink hover:text-bg"
+                >
+                  <span>Reach Out About Beta</span>
+                  <ArrowRight
+                    className="arrow-shift arrow-shift-right h-4 w-4"
+                    aria-hidden="true"
+                  />
+                </Link>
+              </>
+            )}
           </div>
         </section>
 
-        {/* Bottom navigation: Home & Next project */}
+        {/* Bottom navigation: All Selected Work & Next project */}
         <nav
           aria-label="Project navigation"
           className="grid grid-cols-1 border border-border bg-bg sm:grid-cols-2"
@@ -356,7 +414,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
           >
             <div>
               <span className="block font-mono text-[10px] tracking-[0.14em] text-muted uppercase group-hover:text-ink">
-                NEXT CASE STUDY ({nextProject.index})
+                NEXT PROJECT ({nextProject.index})
               </span>
               <span className="mt-1 block font-mono text-sm font-semibold text-ink">
                 {nextProject.title}

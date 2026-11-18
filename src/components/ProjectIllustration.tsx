@@ -19,11 +19,9 @@ export function ProjectIllustration({
         role="img"
         aria-label="Agent workflow and orchestration diagram for Competitor Intelligence Monitor"
       >
-        {/* Subtle grid */}
         <line x1="0" y1="100" x2="380" y2="100" stroke="#292929" strokeOpacity="0.1" strokeDasharray="3 4" />
         <line x1="190" y1="0" x2="190" y2="200" stroke="#292929" strokeOpacity="0.1" strokeDasharray="3 4" />
 
-        {/* Left: 20+ Sources stack */}
         <rect x="18" y="34" width="66" height="24" fill="#F8F7F2" stroke="#292929" strokeWidth="1.25" />
         <rect x="18" y="66" width="66" height="24" fill="#F8F7F2" stroke="#292929" strokeWidth="1.25" />
         <rect x="18" y="98" width="66" height="24" fill="#F8F7F2" stroke="#292929" strokeWidth="1.25" />
@@ -31,12 +29,10 @@ export function ProjectIllustration({
         <text x="27" y="81" fontFamily="var(--font-geist-mono), monospace" fontSize="8" fill="#171717">SRC_02</text>
         <text x="27" y="113" fontFamily="var(--font-geist-mono), monospace" fontSize="8" fill="#626262">+18 MORE</text>
 
-        {/* Connectors to orchestrator */}
         <path d="M84 46 H108 V78 H126" stroke="#292929" strokeWidth="1.25" />
         <path d="M84 78 H126" stroke="#292929" strokeWidth="1.25" />
         <path d="M84 110 H108 V78" stroke="#292929" strokeWidth="1.25" />
 
-        {/* Center: LangGraph Agent Orchestration Box */}
         <rect x="126" y="30" width="126" height="98" fill="#F8F7F2" stroke="#292929" strokeWidth="1.5" />
         <rect x="126" y="30" width="126" height="18" fill="#171717" />
         <text x="134" y="42" fontFamily="var(--font-geist-mono), monospace" fontSize="8" fill="#C7FF35">LANGGRAPH AGENT</text>
@@ -50,7 +46,6 @@ export function ProjectIllustration({
         <rect x="136" y="104" width="106" height="16" fill="#C7FF35" stroke="#292929" strokeWidth="1" />
         <text x="144" y="115" fontFamily="var(--font-geist-mono), monospace" fontSize="7.5" fontWeight="700" fill="#171717">03. BATTLECARD</text>
 
-        {/* Right: Eval Gate & Grafana Output */}
         <path d="M252 78 H282" stroke="#292929" strokeWidth="1.25" />
         <polygon points="282,75 288,78 282,81" fill="#292929" />
 
@@ -60,14 +55,12 @@ export function ProjectIllustration({
 
         <rect x="288" y="90" width="74" height="38" fill="#F8F7F2" stroke="#292929" strokeWidth="1.25" />
         <text x="295" y="104" fontFamily="var(--font-geist-mono), monospace" fontSize="7.5" fill="#626262">GRAFANA</text>
-        {/* Minimal metric bars */}
         <rect x="296" y="114" width="8" height="8" fill="#292929" />
         <rect x="308" y="110" width="8" height="12" fill="#292929" />
         <rect x="320" y="112" width="8" height="10" fill="#292929" />
         <rect x="332" y="106" width="8" height="16" fill="#C7FF35" stroke="#292929" strokeWidth="1" />
         <rect x="344" y="109" width="8" height="13" fill="#292929" />
 
-        {/* Bottom status line */}
         <line x1="18" y1="156" x2="362" y2="156" stroke="#292929" strokeWidth="1" />
         <text x="18" y="174" fontFamily="var(--font-geist-mono), monospace" fontSize="8.5" fill="#626262">CELERY · REDIS · FASTAPI</text>
         <text x="362" y="174" textAnchor="end" fontFamily="var(--font-geist-mono), monospace" fontSize="8.5" fontWeight="600" fill="#171717">~20K TOK/RUN · 14+ METRICS</text>
@@ -88,32 +81,21 @@ export function ProjectIllustration({
         role="img"
         aria-label="Speech waveform alignment and TTS fine-tuning diagram for Indic Speech Dubbing"
       >
-        {/* Source track box */}
         <rect x="18" y="22" width="228" height="52" fill="#F8F7F2" stroke="#292929" strokeWidth="1.25" />
         <text x="26" y="36" fontFamily="var(--font-geist-mono), monospace" fontSize="7.5" fill="#626262">SRC AUDIO // FASTER-WHISPER ASR</text>
         {srcBars.map((h, i) => (
-          <rect
-            key={`src-${i}`}
-            x={28 + i * 13}
-            y={56 - h / 2}
-            width="6"
-            height={h}
-            fill="#292929"
-          />
+          <rect key={`src-${i}`} x={28 + i * 13} y={56 - h / 2} width="6" height={h} fill="#292929" />
         ))}
 
-        {/* Alignment vertical guides */}
         <line x1="28" y1="74" x2="28" y2="104" stroke="#292929" strokeDasharray="2 2" />
         <line x1="132" y1="74" x2="132" y2="104" stroke="#292929" strokeDasharray="2 2" />
         <line x1="230" y1="74" x2="230" y2="104" stroke="#292929" strokeDasharray="2 2" />
 
-        {/* Duration bridge label */}
         <rect x="64" y="81" width="136" height="17" fill="#C7FF35" stroke="#292929" strokeWidth="1" />
         <text x="132" y="92.5" textAnchor="middle" fontFamily="var(--font-geist-mono), monospace" fontSize="7.5" fontWeight="700" fill="#171717">
           DURATION-SCORED · 1.2× GAP
         </text>
 
-        {/* Target dubbed track box */}
         <rect x="18" y="104" width="228" height="52" fill="#F8F7F2" stroke="#292929" strokeWidth="1.5" />
         <text x="26" y="118" fontFamily="var(--font-geist-mono), monospace" fontSize="7.5" fill="#171717">DUBBED // INDICF5 ZERO-SHOT CLONE</text>
         {dubBars.map((h, i) => (
@@ -129,7 +111,6 @@ export function ProjectIllustration({
           />
         ))}
 
-        {/* Right: LoRA DiT Stack Box */}
         <path d="M246 48 H266 V130 H246" stroke="#292929" strokeWidth="1.25" />
         <line x1="266" y1="89" x2="282" y2="89" stroke="#292929" strokeWidth="1.25" />
 
@@ -144,10 +125,108 @@ export function ProjectIllustration({
         <text x="290" y="128" fontFamily="var(--font-geist-mono), monospace" fontSize="7.5" fill="#C7FF35">14/14 SYNC</text>
         <text x="290" y="142" fontFamily="var(--font-geist-mono), monospace" fontSize="7.5" fill="#EFEFEA">135 TESTS</text>
 
-        {/* Bottom strip */}
         <line x1="18" y1="168" x2="362" y2="168" stroke="#292929" strokeWidth="1" />
         <text x="18" y="184" fontFamily="var(--font-geist-mono), monospace" fontSize="8.5" fill="#626262">FFMPEG · INDICTRANS2 · CER QC</text>
         <text x="362" y="184" textAnchor="end" fontFamily="var(--font-geist-mono), monospace" fontSize="8.5" fontWeight="600" fill="#171717">ZERO DRIFT</text>
+      </svg>
+    );
+  }
+
+  if (type === "diarizbench") {
+    return (
+      <svg
+        viewBox="0 0 380 200"
+        className={`h-full w-full ${className}`}
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-label="Speaker diarization turn timeline and DER benchmark comparison for DiarizBench"
+      >
+        {/* Top timeline box: multi-speaker turns */}
+        <rect x="18" y="18" width="344" height="58" fill="#F8F7F2" stroke="#292929" strokeWidth="1.25" />
+        <text x="26" y="32" fontFamily="var(--font-geist-mono), monospace" fontSize="7.5" fill="#626262">RTTM TURN TIMELINE // OVERLAP &amp; BRIEF SPEAKERS</text>
+        {/* SPK 1 */}
+        <text x="26" y="48" fontFamily="var(--font-geist-mono), monospace" fontSize="7" fill="#171717">SPK_A</text>
+        <rect x="64" y="40" width="84" height="10" fill="#171717" />
+        <rect x="188" y="40" width="96" height="10" fill="#171717" />
+        {/* SPK 2 */}
+        <text x="26" y="64" fontFamily="var(--font-geist-mono), monospace" fontSize="7" fill="#171717">SPK_B</text>
+        <rect x="128" y="56" width="88" height="10" fill="#C7FF35" stroke="#292929" strokeWidth="1" />
+        <rect x="304" y="56" width="44" height="10" fill="#C7FF35" stroke="#292929" strokeWidth="1" />
+
+        {/* Lower comparison matrix: 3 systems DER */}
+        <rect x="18" y="88" width="218" height="68" fill="#F8F7F2" stroke="#292929" strokeWidth="1.5" />
+        <text x="26" y="102" fontFamily="var(--font-geist-mono), monospace" fontSize="7.5" fontWeight="700" fill="#171717">PILOT DER ↓ (0-COLLAR, 24 RECS)</text>
+
+        <text x="26" y="118" fontFamily="var(--font-geist-mono), monospace" fontSize="7.5" fill="#171717">ANUVANI</text>
+        <rect x="92" y="110" width="76" height="10" fill="#C7FF35" stroke="#292929" strokeWidth="1" />
+        <text x="174" y="118" fontFamily="var(--font-geist-mono), monospace" fontSize="7.5" fontWeight="700" fill="#171717">13.8%</text>
+
+        <text x="26" y="133" fontFamily="var(--font-geist-mono), monospace" fontSize="7.5" fill="#626262">PYANNOTE</text>
+        <rect x="92" y="125" width="102" height="10" fill="#292929" />
+        <text x="200" y="133" fontFamily="var(--font-geist-mono), monospace" fontSize="7.5" fill="#171717">20.4%</text>
+
+        <text x="26" y="148" fontFamily="var(--font-geist-mono), monospace" fontSize="7.5" fill="#626262">NEMOTRON</text>
+        <rect x="92" y="140" width="108" height="10" fill="#626262" />
+        <text x="205" y="148" fontFamily="var(--font-geist-mono), monospace" fontSize="7.5" fill="#171717">21.6%</text>
+
+        {/* Right callout: Coverage + CI */}
+        <rect x="248" y="88" width="114" height="68" fill="#171717" stroke="#292929" strokeWidth="1.5" />
+        <rect x="256" y="96" width="8" height="8" fill="#C7FF35" />
+        <text x="270" y="103" fontFamily="var(--font-geist-mono), monospace" fontSize="7.5" fill="#C7FF35">BOOTSTRAP CI</text>
+        <text x="256" y="124" fontFamily="var(--font-geist-mono), monospace" fontSize="11" fontWeight="700" fill="#F8F7F2">7 LANGS</text>
+        <text x="256" y="138" fontFamily="var(--font-geist-mono), monospace" fontSize="7.5" fill="#EFEFEA">72 GPU RUNS</text>
+        <text x="256" y="149" fontFamily="var(--font-geist-mono), monospace" fontSize="7.5" fill="#C7FF35">61% LOW-ACT RCL</text>
+
+        <line x1="18" y1="168" x2="362" y2="168" stroke="#292929" strokeWidth="1" />
+        <text x="18" y="184" fontFamily="var(--font-geist-mono), monospace" fontSize="8.5" fill="#626262">INDIC DIARBENCH · AMI · VOXCONVERSE</text>
+        <text x="362" y="184" textAnchor="end" fontFamily="var(--font-geist-mono), monospace" fontSize="8.5" fontWeight="600" fill="#171717">0.053 RTF</text>
+      </svg>
+    );
+  }
+
+  if (type === "agent-lab") {
+    return (
+      <svg
+        viewBox="0 0 380 200"
+        className={`h-full w-full ${className}`}
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-label="AgentLab local-first testing, tracing, and regression evaluation diagram"
+      >
+        {/* Terminal CLI frame */}
+        <rect x="18" y="22" width="160" height="126" fill="#171717" stroke="#292929" strokeWidth="1.5" />
+        <rect x="18" y="22" width="160" height="18" fill="#292929" />
+        <rect x="26" y="28" width="6" height="6" fill="#C7FF35" />
+        <text x="38" y="34" fontFamily="var(--font-geist-mono), monospace" fontSize="7.5" fill="#F8F7F2">AGENTLAB CLI // V1</text>
+
+        <text x="28" y="58" fontFamily="var(--font-geist-mono), monospace" fontSize="9" fill="#C7FF35">$ agentlab init</text>
+        <text x="28" y="78" fontFamily="var(--font-geist-mono), monospace" fontSize="9" fill="#F8F7F2">$ agentlab test</text>
+        <text x="28" y="98" fontFamily="var(--font-geist-mono), monospace" fontSize="9" fill="#F8F7F2">$ agentlab report</text>
+        <line x1="28" y1="112" x2="168" y2="112" stroke="#626262" strokeWidth="1" />
+        <text x="28" y="128" fontFamily="var(--font-geist-mono), monospace" fontSize="7.5" fill="#EFEFEA">LOCAL-FIRST · PYTEST</text>
+        <text x="28" y="140" fontFamily="var(--font-geist-mono), monospace" fontSize="7.5" fill="#C7FF35">OTEL TRACE + DIFF</text>
+
+        {/* Connectors */}
+        <path d="M178 60 H202" stroke="#292929" strokeWidth="1.25" />
+        <path d="M178 106 H202" stroke="#292929" strokeWidth="1.25" />
+
+        {/* Right: Planned modules */}
+        <rect x="202" y="22" width="160" height="44" fill="#F8F7F2" stroke="#292929" strokeWidth="1.25" />
+        <text x="212" y="38" fontFamily="var(--font-geist-mono), monospace" fontSize="7.5" fill="#626262">EVAL + RAG METRICS</text>
+        <text x="212" y="54" fontFamily="var(--font-geist-mono), monospace" fontSize="9.5" fontWeight="700" fill="#171717">RECALL@K · MRR · NDCG</text>
+
+        <rect x="202" y="76" width="160" height="44" fill="#C7FF35" stroke="#292929" strokeWidth="1.5" />
+        <text x="212" y="92" fontFamily="var(--font-geist-mono), monospace" fontSize="7.5" fontWeight="600" fill="#171717">STATUS // IN BUILD</text>
+        <text x="212" y="109" fontFamily="var(--font-geist-mono), monospace" fontSize="11" fontWeight="700" fill="#171717">COMING SOON</text>
+
+        <rect x="202" y="128" width="160" height="20" fill="#EFEFEA" stroke="#292929" strokeWidth="1" />
+        <text x="212" y="141" fontFamily="var(--font-geist-mono), monospace" fontSize="7.5" fill="#171717">AI RELEASE ENGINEER</text>
+
+        <line x1="18" y1="168" x2="362" y2="168" stroke="#292929" strokeWidth="1" />
+        <text x="18" y="184" fontFamily="var(--font-geist-mono), monospace" fontSize="8.5" fill="#626262">LANGGRAPH · OTEL · CI GATES</text>
+        <text x="362" y="184" textAnchor="end" fontFamily="var(--font-geist-mono), monospace" fontSize="8.5" fontWeight="600" fill="#171717">OPEN-SOURCE BETA</text>
       </svg>
     );
   }
@@ -162,45 +241,36 @@ export function ProjectIllustration({
       role="img"
       aria-label="Four-agent retrieval and critique architecture diagram for Multi-Agent RAG Platform"
     >
-      {/* Agent 01: Decompose */}
       <rect x="18" y="64" width="76" height="50" fill="#F8F7F2" stroke="#292929" strokeWidth="1.5" />
       <text x="25" y="80" fontFamily="var(--font-geist-mono), monospace" fontSize="7.5" fill="#626262">AGENT 01</text>
       <text x="25" y="96" fontFamily="var(--font-geist-mono), monospace" fontSize="9" fontWeight="700" fill="#171717">DECOMPOSE</text>
       <text x="25" y="108" fontFamily="var(--font-geist-mono), monospace" fontSize="7" fill="#626262">SUB-QUERIES</text>
 
-      {/* Split to FAISS & Web */}
       <path d="M94 89 H112 V48 H128" stroke="#292929" strokeWidth="1.25" />
       <path d="M112 89 V126 H128" stroke="#292929" strokeWidth="1.25" />
 
-      {/* Agent 02A: FAISS */}
       <rect x="128" y="28" width="74" height="40" fill="#EFEFEA" stroke="#292929" strokeWidth="1.25" />
       <text x="136" y="44" fontFamily="var(--font-geist-mono), monospace" fontSize="7.5" fill="#626262">AGENT 02A</text>
       <text x="136" y="58" fontFamily="var(--font-geist-mono), monospace" fontSize="9" fontWeight="700" fill="#171717">FAISS DB</text>
 
-      {/* Agent 02B: Web */}
       <rect x="128" y="106" width="74" height="40" fill="#EFEFEA" stroke="#292929" strokeWidth="1.25" />
       <text x="136" y="122" fontFamily="var(--font-geist-mono), monospace" fontSize="7.5" fill="#626262">AGENT 02B</text>
       <text x="136" y="136" fontFamily="var(--font-geist-mono), monospace" fontSize="9" fontWeight="700" fill="#171717">WEB ROUTE</text>
 
-      {/* Merge to Synthesis */}
       <path d="M202 48 H216 V89 H230" stroke="#292929" strokeWidth="1.25" />
       <path d="M202 126 H216 V89" stroke="#292929" strokeWidth="1.25" />
 
-      {/* Agent 03: Synthesis */}
       <rect x="230" y="34" width="132" height="44" fill="#F8F7F2" stroke="#292929" strokeWidth="1.5" />
       <text x="240" y="50" fontFamily="var(--font-geist-mono), monospace" fontSize="7.5" fill="#626262">AGENT 03 // PROVENANCE</text>
       <text x="240" y="66" fontFamily="var(--font-geist-mono), monospace" fontSize="10" fontWeight="700" fill="#171717">SYNTHESIS</text>
 
-      {/* Connector to Critique */}
       <line x1="296" y1="78" x2="296" y2="96" stroke="#292929" strokeWidth="1.25" />
       <polygon points="293,94 296,99 299,94" fill="#292929" />
 
-      {/* Agent 04: Critique */}
       <rect x="230" y="100" width="132" height="48" fill="#C7FF35" stroke="#292929" strokeWidth="1.5" />
       <text x="240" y="116" fontFamily="var(--font-geist-mono), monospace" fontSize="7.5" fontWeight="600" fill="#171717">AGENT 04 // CRITIQUE</text>
       <text x="240" y="135" fontFamily="var(--font-geist-mono), monospace" fontSize="11.5" fontWeight="700" fill="#171717">18% → 7% UNGRND</text>
 
-      {/* Bottom SSE telemetry strip */}
       <line x1="18" y1="166" x2="362" y2="166" stroke="#292929" strokeWidth="1" />
       <rect x="18" y="175" width="8" height="8" fill="#C7FF35" stroke="#292929" strokeWidth="1" />
       <text x="32" y="182" fontFamily="var(--font-geist-mono), monospace" fontSize="8.5" fill="#626262">SSE TELEMETRY · 200-Q EVAL</text>

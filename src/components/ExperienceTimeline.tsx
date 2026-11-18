@@ -48,12 +48,20 @@ export function ExperienceTimeline() {
                 </div>
               </div>
 
-              {/* Concise achievement body */}
+              {/* Full CV bullets + verified impact sidebar */}
               <div className="grid grid-cols-1 divide-y divide-border md:grid-cols-12 md:divide-x md:divide-y-0">
-                <div className="p-5 md:col-span-8">
-                  <p className="text-sm leading-relaxed text-ink/90 sm:text-[15px]">
-                    {item.achievement}
-                  </p>
+                <div className="p-5 sm:p-6 md:col-span-8">
+                  <ul className="space-y-3 text-sm leading-relaxed text-ink/90">
+                    {item.bullets.map((bullet, idx) => (
+                      <li key={idx} className="flex items-start gap-3">
+                        <span
+                          className="mt-2 inline-block h-1.5 w-1.5 shrink-0 border border-border bg-lime"
+                          aria-hidden="true"
+                        />
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
                 <div className="flex flex-col justify-between bg-surface/40 p-5 md:col-span-4">
@@ -66,19 +74,24 @@ export function ExperienceTimeline() {
                     </p>
                   </div>
 
-                  <ul
-                    className="mt-4 flex flex-wrap gap-1.5"
-                    aria-label={`Technologies used at ${item.company}`}
-                  >
-                    {item.tags.map((tag) => (
-                      <li
-                        key={tag}
-                        className="border border-border bg-bg px-2 py-0.5 font-mono text-[10px] text-ink"
-                      >
-                        {tag}
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="mt-5">
+                    <span className="block font-mono text-[10px] tracking-[0.14em] text-muted uppercase">
+                      STACK
+                    </span>
+                    <ul
+                      className="mt-2 flex flex-wrap gap-1.5"
+                      aria-label={`Technologies used at ${item.company}`}
+                    >
+                      {item.tags.map((tag) => (
+                        <li
+                          key={tag}
+                          className="border border-border bg-bg px-2 py-0.5 font-mono text-[10px] text-ink"
+                        >
+                          {tag}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>

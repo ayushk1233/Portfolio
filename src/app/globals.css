@@ -138,6 +138,63 @@ body {
   animation: signal-pulse 6s ease-in-out infinite;
 }
 
+/* Gentle hanging wooden plywood sign swing around top nail */
+@keyframes plywood-swing {
+  0%,
+  100% {
+    transform: rotate(-2.4deg);
+  }
+  50% {
+    transform: rotate(2.4deg);
+  }
+}
+
+.animate-plywood-swing {
+  transform-origin: 200px 26px;
+  animation: plywood-swing 4.2s ease-in-out infinite;
+}
+
+.animate-plywood-swing:hover {
+  animation-play-state: paused;
+}
+
+/* Smooth continuous ticker for Core Stack */
+@keyframes stack-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-stack-marquee {
+  display: flex;
+  width: max-content;
+  animation: stack-marquee 30s linear infinite;
+}
+
+.animate-stack-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Subtle pulsing status square for Core Stack */
+@keyframes lime-beacon {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.22);
+    opacity: 0.65;
+  }
+}
+
+.animate-lime-beacon {
+  animation: lime-beacon 2.8s ease-in-out infinite;
+}
+
 /* Respect reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -166,8 +223,11 @@ body {
     transform: none;
   }
 
-  .animate-signal-slow {
-    animation: none;
+  .animate-signal-slow,
+  .animate-plywood-swing,
+  .animate-stack-marquee,
+  .animate-lime-beacon {
+    animation: none !important;
   }
 
   svg animateMotion {
