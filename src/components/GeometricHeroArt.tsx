@@ -220,7 +220,13 @@ export function GeometricHeroArt() {
       {/* Bottom technical strip */}
       <div className="mt-4 flex items-center justify-between border-t border-border pt-2 font-mono text-[10px] tracking-[0.12em] text-muted">
         <span>PYTORCH / LANGGRAPH / SPEECH</span>
-        <span className="text-ink">STATUS: PRODUCTION</span>
+        <span className="inline-flex items-center gap-1.5 font-semibold text-ink">
+          <span
+            className="inline-block h-1.5 w-1.5 bg-flame"
+            aria-hidden="true"
+          />
+          STATUS: PRODUCTION
+        </span>
       </div>
     </div>
   );

@@ -40,7 +40,11 @@ export function ExperienceTimeline() {
                 </div>
                 <div className="flex items-center gap-2 font-mono text-xs text-ink">
                   {item.current ? (
-                    <span className="border border-border bg-lime px-1.5 py-0.5 text-[10px] font-semibold uppercase">
+                    <span className="inline-flex items-center gap-1.5 border border-border bg-flame px-2 py-0.5 text-[10px] font-bold text-bg uppercase">
+                      <span
+                        className="inline-block h-1.5 w-1.5 bg-lime"
+                        aria-hidden="true"
+                      />
                       Current
                     </span>
                   ) : null}

@@ -4,6 +4,7 @@
   --color-bg: #f8f7f2;
   --color-ink: #171717;
   --color-lime: #c7ff35;
+  --color-flame: #ff4d1a;
   --color-surface: #efefea;
   --color-border: #292929;
   --color-muted: #626262;
@@ -15,6 +16,7 @@
   --bg: #f8f7f2;
   --ink: #171717;
   --lime: #c7ff35;
+  --flame: #ff4d1a;
   --surface: #efefea;
   --border: #292929;
   --muted: #626262;
@@ -195,6 +197,61 @@ body {
   animation: lime-beacon 2.8s ease-in-out infinite;
 }
 
+/* Smooth vinyl platter rotation */
+@keyframes vinyl-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-vinyl-spin {
+  animation: vinyl-spin 6.5s linear infinite;
+}
+
+.animate-vinyl-spin-slow {
+  animation: vinyl-spin 16s linear infinite;
+}
+
+.vinyl-paused {
+  animation-play-state: paused;
+}
+
+/* Vinyl grooves radial texture */
+.vinyl-grooves {
+  background:
+    radial-gradient(
+      circle at center,
+      transparent 0%,
+      transparent 34%,
+      rgba(255, 255, 255, 0.09) 35%,
+      transparent 36.5%,
+      rgba(255, 255, 255, 0.05) 45%,
+      transparent 46.5%,
+      rgba(255, 255, 255, 0.07) 56%,
+      transparent 57.5%,
+      rgba(255, 255, 255, 0.06) 68%,
+      transparent 69.5%,
+      rgba(255, 255, 255, 0.08) 80%,
+      transparent 82%,
+      rgba(255, 77, 26, 0.22) 96%,
+      #141414 100%
+    ),
+    conic-gradient(
+      from 35deg,
+      #141414 0deg,
+      #252525 32deg,
+      #121212 68deg,
+      #1c1c1c 145deg,
+      #2c2c2c 198deg,
+      #111111 245deg,
+      #1f1f1f 315deg,
+      #141414 360deg
+    );
+}
+
 /* Respect reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -226,7 +283,9 @@ body {
   .animate-signal-slow,
   .animate-plywood-swing,
   .animate-stack-marquee,
-  .animate-lime-beacon {
+  .animate-lime-beacon,
+  .animate-vinyl-spin,
+  .animate-vinyl-spin-slow {
     animation: none !important;
   }
 

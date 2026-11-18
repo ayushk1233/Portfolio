@@ -3,6 +3,7 @@ import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { VinylWidget } from "@/components/VinylWidget";
 import { SITE_CONFIG } from "@/data/site";
 import { getSiteUrl, withBasePath } from "@/lib/paths";
 import "./globals.css";
@@ -84,6 +85,7 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
+          <VinylWidget />
         </div>
       </body>
     </html>

@@ -93,7 +93,11 @@ export function Hero() {
 
               <div className="mt-8 grid grid-cols-2 gap-4 border-t border-border pt-5 font-mono text-[11px] text-muted sm:grid-cols-3">
                 <div>
-                  <span className="block text-[10px] tracking-widest uppercase">
+                  <span className="flex items-center gap-1.5 text-[10px] tracking-widest uppercase">
+                    <span
+                      className="inline-block h-1.5 w-1.5 bg-flame"
+                      aria-hidden="true"
+                    />
                     CURRENTLY
                   </span>
                   <span className="mt-0.5 block font-medium text-ink">

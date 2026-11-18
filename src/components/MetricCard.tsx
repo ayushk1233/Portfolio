@@ -6,12 +6,14 @@ interface MetricCardProps {
 
 export function MetricCard({ metric }: MetricCardProps) {
   return (
-    <div className="flex h-full flex-col justify-between border border-border bg-bg p-5 sm:p-6">
+    <div className="group flex h-full flex-col justify-between border border-border bg-bg p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-flame hover:shadow-[3px_3px_0_0_#FF4D1A] sm:p-6">
       <div>
         <div className="flex items-center justify-between font-mono text-[11px] text-muted">
-          <span>{metric.index}</span>
+          <span className="transition-colors duration-200 group-hover:text-flame">
+            {metric.index}
+          </span>
           <span
-            className="inline-block h-2 w-2 border border-border bg-lime"
+            className="inline-block h-2 w-2 border border-border bg-lime transition-colors duration-200 group-hover:bg-flame"
             aria-hidden="true"
           />
         </div>

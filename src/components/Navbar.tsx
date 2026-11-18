@@ -49,7 +49,7 @@ export function Navbar() {
           aria-label="Ayush Kumar — Home"
         >
           <span
-            className="inline-block h-3 w-3 border border-border bg-ink transition-colors duration-200 group-hover:bg-lime"
+            className="inline-block h-3 w-3 border border-border bg-ink transition-colors duration-200 group-hover:bg-flame"
             aria-hidden="true"
           />
           <span>{SITE_CONFIG.monogram}</span>

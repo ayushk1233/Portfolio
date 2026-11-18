@@ -5,7 +5,7 @@ import { SITE_CONFIG } from "@/data/site";
 export function Footer() {
   return (
     <footer className="border-t border-border bg-surface">
-      <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 pt-6 pb-20 sm:flex-row sm:items-center sm:justify-between sm:px-6 sm:pb-16 lg:px-8 lg:pb-8">
         <div className="flex flex-wrap items-center gap-x-4 gap-y-1 font-mono text-xs text-muted">
           <Link
             href="/"
