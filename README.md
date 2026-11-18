@@ -82,13 +82,10 @@ Edit `src/data/projects.ts`. Every entry in the `PROJECTS` array automatically:
 
 Set `liveUrl` only if a verified live deployment exists; omit it otherwise.
 
-### How to Replace Personal Photographs (`Beyond the Code`)
+### How to Update Personal Photographs (`Beyond the Code`)
 
-1. Place your images in `public/images/beyond/` (for example: `football.jpg`, `anime.jpg`, `reading.jpg`, `life-lately.jpg`).
-2. Update the `photoPath` field for each card in `src/data/personal.ts`:
-   ```ts
-   photoPath: "/images/beyond/football.jpg",
-   ```
+1. Place images in `public/images/beyond/`.
+2. Add or reorder entries in `BEYOND_PHOTOS` inside `src/data/personal.ts` (the first 5 entries appear by default; the rest appear when visitors click **Show All**).
 3. Static `basePath` prefixing is handled automatically via `withBasePath()`.
 
 ### How to Update Your Resume

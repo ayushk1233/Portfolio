@@ -57,10 +57,10 @@ export function Hero() {
                   baselines.
                 </p>
                 <p className="text-muted">
-                  Away from training runs and latency profiles, I&apos;m usually
-                  unwinding with football, getting pulled into sharp anime
-                  storytelling, reading off-screen, or chasing whatever new
-                  curiosity refuses to switch off.
+                  Away from training runs and latency profiles, you&apos;ll find
+                  me on a football turf, at the gym, swimming, picking up guitar
+                  riffs, experimenting with fashion, travelling whenever I can,
+                  or falling down YouTube rabbit holes learning cool new tricks.
                 </p>
               </div>
             </div>
@@ -113,7 +113,7 @@ export function Hero() {
                     OFF-SCREEN
                   </span>
                   <span className="mt-0.5 block font-medium text-ink">
-                    Football · Anime · Books
+                    Football · Gym · Travel
                   </span>
                 </div>
               </div>
