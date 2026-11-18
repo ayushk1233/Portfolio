@@ -21,10 +21,13 @@ export function Hero() {
               {/* Eyebrow label */}
               <div className="mb-7 inline-flex items-center gap-2.5 border border-border bg-surface px-3 py-1.5 font-mono text-[11px] font-semibold tracking-[0.14em] text-ink uppercase">
                 <span
-                  className="inline-block h-2 w-2 border border-border bg-lime"
+                  className="inline-block h-2 w-2 border border-border bg-flame"
                   aria-hidden="true"
                 />
-                <span>{SITE_CONFIG.roleLabel}</span>
+                <span>
+                  AYUSH KUMAR <span className="text-flame-ink">/</span> AI ML
+                  ENGINEER
+                </span>
               </div>
 
               {/* Headline */}
@@ -32,22 +35,26 @@ export function Hero() {
                 id="hero-heading"
                 className="text-[clamp(2.3rem,5.2vw,4.15rem)] leading-[1.03] font-bold tracking-[-0.04em] text-ink"
               >
-                <span className="block">I build AI systems.</span>
+                <span className="block">
+                  I build AI systems<span className="text-flame-ink">.</span>
+                </span>
                 <span className="mt-2 block">
                   Not just{" "}
                   <span className="inline-block border border-border bg-lime px-2.5 pb-1 leading-[1.02]">
-                    demos.
+                    demos<span className="text-flame-ink">.</span>
                   </span>
                 </span>
               </h1>
 
               {/* Supporting specialties line */}
-              <p className="mt-6 font-mono text-xs tracking-wide text-muted sm:text-sm">
-                {SITE_CONFIG.specialties}
+              <p className="mt-6 font-mono text-xs font-medium tracking-wide text-muted sm:text-sm">
+                Applied AI <span className="text-flame-ink">·</span> Voice AI{" "}
+                <span className="text-flame-ink">·</span> Agentic Systems{" "}
+                <span className="text-flame-ink">·</span> MLOps
               </p>
 
               {/* About Me: What I build + Who I am */}
-              <div className="mt-6 space-y-3.5 border-l-2 border-border pl-4 text-sm leading-relaxed text-ink/90 sm:text-[15.5px]">
+              <div className="mt-6 space-y-3.5 border-l-2 border-flame pl-4 text-sm leading-relaxed text-ink/90 sm:text-[15.5px]">
                 <p>
                   I&apos;m <strong className="font-semibold text-ink">Ayush Kumar</strong>—an
                   AI/ML engineer based in Gurugram who takes models from
@@ -93,7 +100,7 @@ export function Hero() {
 
               <div className="mt-8 grid grid-cols-2 gap-4 border-t border-border pt-5 font-mono text-[11px] text-muted sm:grid-cols-3">
                 <div>
-                  <span className="flex items-center gap-1.5 text-[10px] tracking-widest uppercase">
+                  <span className="flex items-center gap-1.5 text-[10px] font-semibold tracking-widest text-flame-ink uppercase">
                     <span
                       className="inline-block h-1.5 w-1.5 bg-flame"
                       aria-hidden="true"
@@ -105,7 +112,7 @@ export function Hero() {
                   </span>
                 </div>
                 <div>
-                  <span className="block text-[10px] tracking-widest uppercase">
+                  <span className="block text-[10px] font-semibold tracking-widest text-flame-ink uppercase">
                     LOCATION
                   </span>
                   <span className="mt-0.5 block font-medium text-ink">
@@ -113,7 +120,7 @@ export function Hero() {
                   </span>
                 </div>
                 <div className="col-span-2 sm:col-span-1">
-                  <span className="block text-[10px] tracking-widest uppercase">
+                  <span className="block text-[10px] font-semibold tracking-widest text-flame-ink uppercase">
                     OFF-SCREEN
                   </span>
                   <span className="mt-0.5 block font-medium text-ink">

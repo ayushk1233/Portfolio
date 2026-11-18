@@ -9,7 +9,7 @@ export function MetricCard({ metric }: MetricCardProps) {
     <div className="group flex h-full flex-col justify-between border border-border bg-bg p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-flame hover:shadow-[3px_3px_0_0_#FF4D1A] sm:p-6">
       <div>
         <div className="flex items-center justify-between font-mono text-[11px] text-muted">
-          <span className="transition-colors duration-200 group-hover:text-flame">
+          <span className="font-semibold text-flame-ink">
             {metric.index}
           </span>
           <span

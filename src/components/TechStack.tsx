@@ -52,12 +52,16 @@ export function TechStack() {
         <div className="animate-stack-marquee">
           {[0, 1].map((dup) => (
             <div key={dup} className="flex shrink-0 items-center gap-6 pr-6">
-              {MARQUEE_ITEMS.map((item) => (
+              {MARQUEE_ITEMS.map((item, i) => (
                 <span
                   key={`${dup}-${item}`}
                   className="inline-flex items-center gap-3 font-mono text-[11px] font-semibold tracking-[0.14em]"
                 >
-                  <span className="inline-block h-1.5 w-1.5 bg-lime" />
+                  <span
+                    className={`inline-block h-1.5 w-1.5 ${
+                      i % 2 === 0 ? "bg-lime" : "bg-flame"
+                    }`}
+                  />
                   <span>{item}</span>
                 </span>
               ))}
@@ -148,9 +152,9 @@ export function TechStack() {
                     {category.title}
                   </h3>
                 </div>
-                <div className="flex items-center gap-2 font-mono text-[11px] text-muted">
+                <div className="flex items-center gap-2 font-mono text-[11px] font-semibold text-flame-ink">
                   <span
-                    className="animate-lime-beacon inline-block h-2 w-2 border border-border bg-lime"
+                    className="animate-lime-beacon inline-block h-2 w-2 border border-border bg-flame"
                     aria-hidden="true"
                   />
                   <span>{category.index}</span>

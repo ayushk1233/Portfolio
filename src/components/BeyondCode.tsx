@@ -49,11 +49,11 @@ export function BeyondCode() {
         <div className="lg:col-span-7">
           <div className="mb-3.5 flex items-center gap-2.5">
             <span
-              className="inline-block h-2.5 w-2.5 border border-border bg-lime"
+              className="inline-block h-2.5 w-2.5 border border-border bg-flame"
               aria-hidden="true"
             />
             <span className="font-mono text-xs font-semibold tracking-[0.16em] text-ink uppercase">
-              / BEYOND CODE
+              <span className="mr-1.5 text-flame-ink">/</span>BEYOND CODE
             </span>
           </div>
           <h2 className="text-[clamp(1.85rem,3.8vw,2.95rem)] leading-[1.06] font-bold tracking-[-0.035em] text-ink">
@@ -128,10 +128,11 @@ export function BeyondCode() {
 
             <div className="flex items-center justify-between border-t border-border bg-bg px-2.5 py-1.5 font-mono text-[10px]">
               <span className="font-semibold tracking-wider text-ink">
-                {photo.index} / {photo.tag}
+                <span className="text-flame-ink">{photo.index}</span> /{" "}
+                {photo.tag}
               </span>
               <span
-                className="inline-block h-1.5 w-1.5 border border-border bg-surface transition-colors duration-200 group-hover:bg-lime"
+                className="inline-block h-1.5 w-1.5 border border-border bg-surface transition-colors duration-200 group-hover:bg-flame"
                 aria-hidden="true"
               />
             </div>

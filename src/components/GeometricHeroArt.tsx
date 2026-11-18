@@ -10,12 +10,13 @@ export function GeometricHeroArt() {
       <div className="mb-4 flex items-center justify-between border-b border-border pb-2 font-mono text-[10px] tracking-[0.14em] text-muted uppercase">
         <span className="flex items-center gap-2 text-ink">
           <span
-            className="inline-block h-2 w-2 border border-border bg-lime"
+            className="inline-block h-2 w-2 border border-border bg-flame"
             aria-hidden="true"
           />
-          FIG.01 // AYUSH KUMAR
+          <span className="font-semibold text-flame-ink">FIG.01</span>
+          <span>{"// AYUSH KUMAR"}</span>
         </span>
-        <span>RESEARCH → PROD</span>
+        <span className="font-semibold text-flame-ink">RESEARCH → PROD</span>
       </div>
 
       {/* Main editorial portrait framed with Swiss neo-brutalist geometry */}
@@ -220,7 +221,7 @@ export function GeometricHeroArt() {
       {/* Bottom technical strip */}
       <div className="mt-4 flex items-center justify-between border-t border-border pt-2 font-mono text-[10px] tracking-[0.12em] text-muted">
         <span>PYTORCH / LANGGRAPH / SPEECH</span>
-        <span className="inline-flex items-center gap-1.5 font-semibold text-ink">
+        <span className="inline-flex items-center gap-1.5 font-semibold text-flame-ink">
           <span
             className="inline-block h-1.5 w-1.5 bg-flame"
             aria-hidden="true"

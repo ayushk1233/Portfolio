@@ -35,7 +35,7 @@ export function ExperienceTimeline() {
                     {item.company}
                   </h3>
                   <span className="font-mono text-xs text-muted">
-                    / {item.role}
+                    <span className="text-flame-ink">/</span> {item.role}
                   </span>
                 </div>
                 <div className="flex items-center gap-2 font-mono text-xs text-ink">
@@ -70,7 +70,7 @@ export function ExperienceTimeline() {
 
                 <div className="flex flex-col justify-between bg-surface/40 p-5 md:col-span-4">
                   <div>
-                    <span className="font-mono text-[10px] tracking-[0.14em] text-muted uppercase">
+                    <span className="font-mono text-[10px] font-semibold tracking-[0.14em] text-flame-ink uppercase">
                       VERIFIED IMPACT
                     </span>
                     <p className="mt-1.5 font-mono text-xs font-semibold text-ink">

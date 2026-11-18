@@ -13,7 +13,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
       {/* Card top bar */}
       <div className="flex items-center justify-between gap-2 border-b border-border bg-surface px-4 py-2.5 font-mono text-[11px]">
         <span className="font-semibold text-ink">
-          {project.index} / {project.period}
+          <span className="text-flame-ink">{project.index}</span> /{" "}
+          {project.period}
         </span>
         {project.comingSoon ? (
           <span className="border border-border bg-lime px-1.5 py-0.5 text-[10px] font-bold text-ink uppercase">
@@ -43,7 +44,15 @@ export function ProjectCard({ project }: ProjectCardProps) {
       <div className="flex flex-1 flex-col justify-between p-5">
         <div>
           <p className="font-mono text-[10px] tracking-[0.14em] text-muted uppercase">
-            {project.category}
+            <span className="font-semibold text-flame-ink">
+              {project.category.split("/")[0]?.trim()}
+            </span>
+            {project.category.includes("/") ? (
+              <>
+                <span className="mx-1 text-flame-ink">/</span>
+                <span>{project.category.split("/")[1]?.trim()}</span>
+              </>
+            ) : null}
           </p>
           <h3 className="mt-2 text-xl leading-snug font-bold tracking-[-0.02em] text-ink">
             <Link

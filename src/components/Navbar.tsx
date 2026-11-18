@@ -52,7 +52,9 @@ export function Navbar() {
             className="inline-block h-3 w-3 border border-border bg-ink transition-colors duration-200 group-hover:bg-flame"
             aria-hidden="true"
           />
-          <span>{SITE_CONFIG.monogram}</span>
+          <span>
+            AK<span className="text-flame-ink">.</span>
+          </span>
         </Link>
 
         {/* Center: Desktop multi-page navigation */}
@@ -63,7 +65,7 @@ export function Navbar() {
               <div key={item.href} className="flex items-center">
                 {idx > 0 ? (
                   <span
-                    className="mx-2.5 font-mono text-xs text-muted/60 select-none"
+                    className="mx-2.5 font-mono text-xs text-flame-ink/70 select-none"
                     aria-hidden="true"
                   >
                     /

@@ -12,11 +12,15 @@ import {
 } from "lucide-react";
 import { getDailyTrackIndex, VINYL_TRACKS } from "@/data/songs";
 
+const POPUP_STORAGE_KEY = "ak_vinyl_reco_last_shown_at";
+const POPUP_COOLDOWN_MS = 25 * 60 * 1000; // 25 minutes
+
 export function VinylWidget() {
   const [dailyIdx, setDailyIdx] = useState<number>(0);
   const [activeIdx, setActiveIdx] = useState<number>(0);
   const [dateLabel, setDateLabel] = useState<string>("DAILY SPIN");
   const [expanded, setExpanded] = useState<boolean>(false);
+  const [showToast, setShowToast] = useState<boolean>(false);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [audioError, setAudioError] = useState<boolean>(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -31,6 +35,40 @@ export function VinylWidget() {
         .toLocaleDateString("en-US", { month: "short", day: "numeric" })
         .toUpperCase()
     );
+
+    // Show recommendation popup on first open or after 25-minute cooldown; never on quick refresh
+    let shouldShowPopup = true;
+    try {
+      const raw = window.localStorage.getItem(POPUP_STORAGE_KEY);
+      const lastShown = raw ? Number(raw) : 0;
+      if (
+        Number.isFinite(lastShown) &&
+        lastShown > 0 &&
+        Date.now() - lastShown < POPUP_COOLDOWN_MS
+      ) {
+        shouldShowPopup = false;
+      } else {
+        window.localStorage.setItem(POPUP_STORAGE_KEY, String(Date.now()));
+      }
+    } catch {
+      // Fallback safely if storage is restricted
+      shouldShowPopup = true;
+    }
+
+    if (!shouldShowPopup) return;
+
+    const showTimer = window.setTimeout(() => {
+      setShowToast(true);
+    }, 650);
+
+    const hideTimer = window.setTimeout(() => {
+      setShowToast(false);
+    }, 10_500);
+
+    return () => {
+      window.clearTimeout(showTimer);
+      window.clearTimeout(hideTimer);
+    };
   }, []);
 
   const track = VINYL_TRACKS[activeIdx] ?? VINYL_TRACKS[0];
@@ -46,13 +84,16 @@ export function VinylWidget() {
   }, [activeIdx]);
 
   useEffect(() => {
-    if (!expanded) return;
+    if (!expanded && !showToast) return;
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setExpanded(false);
+      if (event.key === "Escape") {
+        setExpanded(false);
+        setShowToast(false);
+      }
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [expanded]);
+  }, [expanded, showToast]);
 
   const togglePlay = async () => {
     const audio = audioRef.current;
@@ -69,6 +110,14 @@ export function VinylWidget() {
     } catch {
       setAudioError(true);
       setIsPlaying(false);
+    }
+  };
+
+  const handleOpenAndPlay = async () => {
+    setShowToast(false);
+    setExpanded(true);
+    if (!isPlaying) {
+      await togglePlay();
     }
   };
 
@@ -100,6 +149,70 @@ export function VinylWidget() {
           setAudioError(true);
         }}
       />
+
+      {/* Smart 25-min Cooldown Greeting Popup */}
+      {showToast && !expanded ? (
+        <div
+          role="status"
+          aria-live="polite"
+          className="w-[292px] border border-flame bg-ink text-bg shadow-[4px_4px_0_0_#FF4D1A] sm:w-[320px]"
+        >
+          <div className="flex items-center justify-between border-b border-white/15 bg-black/50 px-3 py-1.5 font-mono text-[10px]">
+            <span className="flex items-center gap-1.5 font-semibold tracking-[0.14em] text-flame uppercase">
+              <span className="inline-block h-1.5 w-1.5 bg-flame" />
+              HEY · TODAY&apos;S SONG PICK
+            </span>
+            <button
+              type="button"
+              onClick={() => setShowToast(false)}
+              aria-label="Dismiss daily song popup"
+              className="inline-flex h-5 w-5 items-center justify-center text-bg/70 transition-colors duration-150 hover:bg-flame hover:text-ink"
+            >
+              <X className="h-3 w-3" aria-hidden="true" />
+            </button>
+          </div>
+
+          <div className="flex items-center gap-3 p-3">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={track.coverUrl}
+              alt={`${track.album} album cover`}
+              width={48}
+              height={48}
+              className="h-12 w-12 shrink-0 border border-flame/75 object-cover"
+            />
+            <div className="min-w-0 flex-1">
+              <p className="font-mono text-[10px] text-bg/70">
+                Hey, today&apos;s song is:
+              </p>
+              <p className="mt-0.5 truncate text-xs font-bold text-bg">
+                {track.title}
+              </p>
+              <p className="truncate font-mono text-[11px] font-medium text-flame">
+                {track.artist}
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 border-t border-white/15 font-mono text-[10px] font-semibold tracking-wider uppercase">
+            <button
+              type="button"
+              onClick={handleOpenAndPlay}
+              className="flex items-center justify-center gap-1.5 border-r border-white/15 bg-flame py-2 text-ink transition-colors duration-150 hover:bg-lime"
+            >
+              <Play className="h-3 w-3" aria-hidden="true" />
+              <span>Spin Preview</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => setShowToast(false)}
+              className="py-2 text-bg/75 transition-colors duration-150 hover:bg-white/10 hover:text-bg"
+            >
+              Dismiss
+            </button>
+          </div>
+        </div>
+      ) : null}
 
       {/* Expanded Vinyl Deck Panel */}
       {expanded ? (
@@ -300,7 +413,10 @@ export function VinylWidget() {
       {/* Floating Compact Black Vinyl Pill (flares Spicy/Flame Orange on hover) */}
       <button
         type="button"
-        onClick={() => setExpanded((prev) => !prev)}
+        onClick={() => {
+          setShowToast(false);
+          setExpanded((prev) => !prev);
+        }}
         aria-expanded={expanded}
         aria-label={`Daily song recommendation: ${track.title} by ${track.artist}. Click to ${expanded ? "close" : "open"} vinyl player.`}
         className={`group flex max-w-[260px] items-center gap-3 border bg-ink px-2.5 py-2 text-left text-bg transition-all duration-200 hover:-translate-y-0.5 hover:border-flame hover:shadow-[4px_4px_0_0_#FF4D1A] ${

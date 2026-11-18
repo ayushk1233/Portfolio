@@ -10,11 +10,11 @@ export function Contact() {
           <div>
             <div className="mb-5 flex items-center gap-2.5">
               <span
-                className="inline-block h-2.5 w-2.5 border border-border bg-lime"
+                className="inline-block h-2.5 w-2.5 border border-border bg-flame"
                 aria-hidden="true"
               />
               <span className="font-mono text-xs font-semibold tracking-[0.16em] text-ink uppercase">
-                / CONTACT
+                <span className="mr-1.5 text-flame-ink">/</span>CONTACT
               </span>
             </div>
 
@@ -56,7 +56,7 @@ export function Contact() {
             className="group flex flex-1 items-center justify-between p-6 transition-colors duration-200 hover:bg-lime sm:p-7"
           >
             <div>
-              <span className="block font-mono text-[10px] tracking-[0.16em] text-muted uppercase group-hover:text-ink">
+              <span className="block font-mono text-[10px] font-semibold tracking-[0.16em] text-flame-ink uppercase group-hover:text-ink">
                 01 / EMAIL
               </span>
               <span className="mt-1.5 block font-mono text-sm font-semibold break-all text-ink sm:text-base">
@@ -76,7 +76,7 @@ export function Contact() {
             className="group flex flex-1 items-center justify-between p-6 transition-colors duration-200 hover:bg-lime sm:p-7"
           >
             <div>
-              <span className="block font-mono text-[10px] tracking-[0.16em] text-muted uppercase group-hover:text-ink">
+              <span className="block font-mono text-[10px] font-semibold tracking-[0.16em] text-flame-ink uppercase group-hover:text-ink">
                 02 / GITHUB
               </span>
               <span className="mt-1.5 block font-mono text-sm font-semibold text-ink sm:text-base">
@@ -96,7 +96,7 @@ export function Contact() {
             className="group flex flex-1 items-center justify-between p-6 transition-colors duration-200 hover:bg-lime sm:p-7"
           >
             <div>
-              <span className="block font-mono text-[10px] tracking-[0.16em] text-muted uppercase group-hover:text-ink">
+              <span className="block font-mono text-[10px] font-semibold tracking-[0.16em] text-flame-ink uppercase group-hover:text-ink">
                 03 / LINKEDIN
               </span>
               <span className="mt-1.5 block font-mono text-sm font-semibold text-ink sm:text-base">

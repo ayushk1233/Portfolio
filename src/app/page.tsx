@@ -94,7 +94,10 @@ export default function HomePage() {
                 <div>
                   <div className="flex items-center justify-between font-mono text-[11px] text-muted group-hover:text-ink">
                     <span>
-                      {item.index} / {item.label}
+                      <span className="font-semibold text-flame-ink group-hover:text-ink">
+                        {item.index}
+                      </span>{" "}
+                      / {item.label}
                     </span>
                     <ArrowRight
                       className="arrow-shift arrow-shift-right h-4 w-4 text-ink"

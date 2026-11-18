@@ -11,6 +11,9 @@ export function SectionHeading({
   title,
   aside,
 }: SectionHeadingProps) {
+  const hasLeadingSlash = label.startsWith("/");
+  const cleanLabel = hasLeadingSlash ? label.slice(1).trimStart() : label;
+
   return (
     <div className="mb-10 border-b border-border pb-5">
       <div className="flex flex-wrap items-center justify-between gap-3">
@@ -21,16 +24,23 @@ export function SectionHeading({
             </span>
           ) : (
             <span
-              className="inline-block h-2.5 w-2.5 border border-border bg-lime"
+              className="inline-block h-2.5 w-2.5 border border-border bg-flame"
               aria-hidden="true"
             />
           )}
           <span className="font-mono text-xs font-semibold tracking-[0.16em] text-ink uppercase">
-            {label}
+            {hasLeadingSlash ? (
+              <span className="mr-1.5 text-flame-ink">/</span>
+            ) : null}
+            {cleanLabel}
           </span>
         </div>
         {aside ? (
-          <span className="font-mono text-xs tracking-wide text-muted">
+          <span className="inline-flex items-center gap-1.5 font-mono text-xs font-medium tracking-wide text-flame-ink">
+            <span
+              className="inline-block h-1.5 w-1.5 bg-flame"
+              aria-hidden="true"
+            />
             {aside}
           </span>
         ) : null}
