@@ -7,48 +7,21 @@ import { ArrowUpRight, Menu, X } from "lucide-react";
 import { NAV_ITEMS, SITE_CONFIG } from "@/data/site";
 import { withBasePath } from "@/lib/paths";
 
+function isRouteActive(pathname: string | null, matchPrefix: string): boolean {
+  const current = pathname ?? "/";
+  if (matchPrefix === "/") {
+    return current === "/" || current === "";
+  }
+  return current === matchPrefix || current.startsWith(`${matchPrefix}/`);
+}
+
 export function Navbar() {
   const pathname = usePathname();
-  const isProjectPage = pathname?.startsWith("/projects");
-  const [activeSection, setActiveSection] = useState<string>(
-    isProjectPage ? "projects" : "home"
-  );
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    if (isProjectPage) {
-      setActiveSection("projects");
-      return;
-    }
-
-    const sectionIds = NAV_ITEMS.map((item) => item.sectionId);
-    const elements = sectionIds
-      .map((id) => document.getElementById(id))
-      .filter((el): el is HTMLElement => el !== null);
-
-    if (elements.length === 0) return;
-
-    const handleScroll = () => {
-      const scrollY = window.scrollY + 140;
-      let current = "home";
-      for (const el of elements) {
-        if (el.offsetTop <= scrollY) {
-          current = el.id;
-        }
-      }
-      if (
-        window.innerHeight + window.scrollY >=
-        document.documentElement.scrollHeight - 40
-      ) {
-        current = "contact";
-      }
-      setActiveSection(current);
-    };
-
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [isProjectPage]);
+    setMobileOpen(false);
+  }, [pathname]);
 
   useEffect(() => {
     if (!mobileOpen) return;
@@ -69,11 +42,8 @@ export function Navbar() {
       >
         {/* Left: Monogram */}
         <Link
-          href="/#home"
-          onClick={() => {
-            setMobileOpen(false);
-            setActiveSection("home");
-          }}
+          href="/"
+          onClick={() => setMobileOpen(false)}
           className="group inline-flex items-center gap-2.5 font-mono text-base font-bold tracking-tight text-ink"
           aria-label="Ayush Kumar — Home"
         >
@@ -84,15 +54,15 @@ export function Navbar() {
           <span>{SITE_CONFIG.monogram}</span>
         </Link>
 
-        {/* Center: Desktop section links */}
+        {/* Center: Desktop multi-page navigation */}
         <div className="hidden items-center gap-1 md:flex">
           {NAV_ITEMS.map((item, idx) => {
-            const isActive = activeSection === item.sectionId;
+            const isActive = isRouteActive(pathname, item.matchPrefix);
             return (
-              <div key={item.sectionId} className="flex items-center">
+              <div key={item.href} className="flex items-center">
                 {idx > 0 ? (
                   <span
-                    className="mx-2 font-mono text-xs text-muted/60 select-none"
+                    className="mx-2.5 font-mono text-xs text-muted/60 select-none"
                     aria-hidden="true"
                   >
                     /
@@ -100,7 +70,7 @@ export function Navbar() {
                 ) : null}
                 <Link
                   href={item.href}
-                  onClick={() => setActiveSection(item.sectionId)}
+                  aria-current={isActive ? "page" : undefined}
                   data-active={isActive ? "true" : "false"}
                   className={`nav-link-underline px-1 py-1 font-mono text-xs tracking-wide transition-colors duration-200 ${
                     isActive
@@ -168,21 +138,17 @@ export function Navbar() {
         >
           <div className="mx-auto max-w-6xl divide-y divide-border px-4 sm:px-6">
             {NAV_ITEMS.map((item, idx) => {
-              const isActive = activeSection === item.sectionId;
+              const isActive = isRouteActive(pathname, item.matchPrefix);
               return (
                 <Link
-                  key={item.sectionId}
+                  key={item.href}
                   href={item.href}
-                  onClick={() => {
-                    setActiveSection(item.sectionId);
-                    setMobileOpen(false);
-                  }}
+                  aria-current={isActive ? "page" : undefined}
+                  onClick={() => setMobileOpen(false)}
                   className="flex items-center justify-between py-3.5 font-mono text-sm text-ink"
                 >
                   <span className="flex items-center gap-3">
-                    <span className="text-xs text-muted">
-                      0{idx + 1}
-                    </span>
+                    <span className="text-xs text-muted">0{idx + 1}</span>
                     <span className={isActive ? "font-semibold" : ""}>
                       {item.label}
                     </span>

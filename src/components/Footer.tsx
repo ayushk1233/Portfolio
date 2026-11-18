@@ -7,7 +7,7 @@ export function Footer() {
       <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-7 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
         <div className="flex flex-wrap items-center gap-x-4 gap-y-1 font-mono text-xs text-muted">
           <Link
-            href="/#home"
+            href="/"
             className="inline-flex items-center gap-2 font-semibold text-ink"
           >
             <span

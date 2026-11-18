@@ -1,48 +1,43 @@
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { BeyondCode } from "@/components/BeyondCode";
-import { Contact } from "@/components/Contact";
-import { ExperienceTimeline } from "@/components/ExperienceTimeline";
 import { Hero } from "@/components/Hero";
 import { MetricCard } from "@/components/MetricCard";
-import { ProjectCard } from "@/components/ProjectCard";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
-import { TechStack } from "@/components/TechStack";
-import { PROJECTS } from "@/data/projects";
 import { ENGINEERING_METRICS } from "@/data/site";
+
+const DIRECTORY_LINKS = [
+  {
+    index: "01",
+    label: "PROJECTS",
+    title: "Selected Work & Case Studies",
+    detail: "Architecture, tradeoffs, and verified results across 3 systems.",
+    href: "/projects",
+  },
+  {
+    index: "02",
+    label: "EXPERIENCE",
+    title: "Timeline & Technical Toolbox",
+    detail: "Josh Talks, ATG / Banao, BlockseBlock, and production stack.",
+    href: "/experience",
+  },
+  {
+    index: "03",
+    label: "CONTACT",
+    title: "Get in Touch",
+    detail: "Direct email, GitHub, LinkedIn, and resume download.",
+    href: "/contact",
+  },
+] as const;
 
 export default function HomePage() {
   return (
     <>
-      {/* B. Hero */}
+      {/* 1. About Me & Hero Portrait */}
       <Hero />
 
-      {/* C. Selected Projects */}
-      <section
-        id="projects"
-        className="scroll-mt-16 border-b border-border bg-bg"
-        aria-labelledby="projects-heading"
-      >
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-          <Reveal>
-            <div id="projects-heading">
-              <SectionHeading
-                index="01"
-                label="/ SELECTED WORK"
-                title="Systems built & measured in production."
-                aside="3 FEATURED CASE STUDIES"
-              />
-            </div>
-
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {PROJECTS.map((project) => (
-                <ProjectCard key={project.slug} project={project} />
-              ))}
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* D. Engineering Highlights */}
+      {/* 2. Measured Signals */}
       <section
         id="highlights"
         className="border-b border-border bg-surface/60"
@@ -52,7 +47,7 @@ export default function HomePage() {
           <Reveal>
             <div id="highlights-heading">
               <SectionHeading
-                index="02"
+                index="01"
                 label="/ MEASURED SIGNALS"
                 aside="VERIFIED AGAINST BASELINES"
               />
@@ -67,51 +62,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* E. Experience */}
-      <section
-        id="experience"
-        className="scroll-mt-16 border-b border-border bg-bg"
-        aria-labelledby="experience-heading"
-      >
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-          <Reveal>
-            <div id="experience-heading">
-              <SectionHeading
-                index="03"
-                label="/ EXPERIENCE"
-                title="Where I have shipped."
-                aside="2025 — PRESENT"
-              />
-            </div>
-
-            <ExperienceTimeline />
-          </Reveal>
-        </div>
-      </section>
-
-      {/* F. Technical Stack */}
-      <section
-        id="toolbox"
-        className="scroll-mt-16 border-b border-border bg-surface/50"
-        aria-labelledby="toolbox-heading"
-      >
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-          <Reveal>
-            <div id="toolbox-heading">
-              <SectionHeading
-                index="04"
-                label="/ TOOLBOX"
-                title="Core stack across research and deployment."
-                aside="5 DOMAINS"
-              />
-            </div>
-
-            <TechStack />
-          </Reveal>
-        </div>
-      </section>
-
-      {/* G. Beyond the Code */}
+      {/* 3. Beyond the Code */}
       <section
         id="beyond-code"
         className="scroll-mt-16 border-b border-border bg-bg"
@@ -124,16 +75,42 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* H. Contact */}
-      <section
-        id="contact"
-        className="scroll-mt-16 bg-bg"
-        aria-label="Contact"
-      >
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-          <Reveal>
-            <Contact />
-          </Reveal>
+      {/* Compact Directory to Dedicated Pages */}
+      <section className="bg-surface/40" aria-label="Explore other sections">
+        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+          <div className="mb-5 flex items-center justify-between font-mono text-[11px] tracking-[0.14em] text-muted uppercase">
+            <span>CONTINUE EXPLORING</span>
+            <span>03 PAGES</span>
+          </div>
+          <div className="grid grid-cols-1 border border-border bg-bg md:grid-cols-3 md:divide-x md:divide-border">
+            {DIRECTORY_LINKS.map((item, idx) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`group flex flex-col justify-between p-6 transition-colors duration-200 hover:bg-lime ${
+                  idx > 0 ? "border-t border-border md:border-t-0" : ""
+                }`}
+              >
+                <div>
+                  <div className="flex items-center justify-between font-mono text-[11px] text-muted group-hover:text-ink">
+                    <span>
+                      {item.index} / {item.label}
+                    </span>
+                    <ArrowRight
+                      className="arrow-shift arrow-shift-right h-4 w-4 text-ink"
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <h2 className="mt-3 text-lg font-bold tracking-tight text-ink">
+                    {item.title}
+                  </h2>
+                  <p className="mt-1.5 text-xs leading-relaxed text-muted group-hover:text-ink/85">
+                    {item.detail}
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
     </>

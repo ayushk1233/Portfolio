@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { GeometricHeroArt } from "@/components/GeometricHeroArt";
 import { SITE_CONFIG } from "@/data/site";
@@ -12,13 +13,13 @@ export function Hero() {
       className="border-b border-border bg-bg"
       aria-labelledby="hero-heading"
     >
-      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+      <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
         <div className="grid grid-cols-1 border border-border bg-bg lg:grid-cols-12">
-          {/* Left column: Headline & Actions */}
+          {/* Left column: About Me Headline, Narrative & Actions */}
           <div className="flex flex-col justify-between border-b border-border p-6 sm:p-10 lg:col-span-7 lg:border-r lg:border-b-0 lg:p-12">
             <div>
               {/* Eyebrow label */}
-              <div className="mb-8 inline-flex items-center gap-2.5 border border-border bg-surface px-3 py-1.5 font-mono text-[11px] font-semibold tracking-[0.14em] text-ink uppercase">
+              <div className="mb-7 inline-flex items-center gap-2.5 border border-border bg-surface px-3 py-1.5 font-mono text-[11px] font-semibold tracking-[0.14em] text-ink uppercase">
                 <span
                   className="inline-block h-2 w-2 border border-border bg-lime"
                   aria-hidden="true"
@@ -29,7 +30,7 @@ export function Hero() {
               {/* Headline */}
               <h1
                 id="hero-heading"
-                className="text-[clamp(2.35rem,5.4vw,4.35rem)] leading-[1.03] font-bold tracking-[-0.04em] text-ink"
+                className="text-[clamp(2.3rem,5.2vw,4.15rem)] leading-[1.03] font-bold tracking-[-0.04em] text-ink"
               >
                 <span className="block">I build AI systems.</span>
                 <span className="mt-2 block">
@@ -41,23 +42,34 @@ export function Hero() {
               </h1>
 
               {/* Supporting specialties line */}
-              <p className="mt-7 font-mono text-xs tracking-wide text-muted sm:text-sm">
+              <p className="mt-6 font-mono text-xs tracking-wide text-muted sm:text-sm">
                 {SITE_CONFIG.specialties}
               </p>
 
-              {/* Brief grounding line */}
-              <p className="mt-4 max-w-xl text-base leading-relaxed text-ink/85 sm:text-[17px]">
-                Taking models from fine-tuning and evaluation to GPU inference
-                at scale and cloud deployment—each system measured against a
-                baseline.
-              </p>
+              {/* About Me: What I build + Who I am */}
+              <div className="mt-6 space-y-3.5 border-l-2 border-border pl-4 text-sm leading-relaxed text-ink/90 sm:text-[15.5px]">
+                <p>
+                  I&apos;m <strong className="font-semibold text-ink">Ayush Kumar</strong>—an
+                  AI/ML engineer based in Gurugram who takes models from
+                  fine-tuning and evaluation to GPU inference at scale and cloud
+                  deployment. Across speech AI (ASR, TTS, diarization), agentic
+                  workflows, and RAG, I build systems measured against real
+                  baselines.
+                </p>
+                <p className="text-muted">
+                  Away from training runs and latency profiles, I&apos;m usually
+                  unwinding with football, getting pulled into sharp anime
+                  storytelling, reading off-screen, or chasing whatever new
+                  curiosity refuses to switch off.
+                </p>
+              </div>
             </div>
 
             {/* CTAs + metadata footer */}
-            <div className="mt-10">
+            <div className="mt-9">
               <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                <a
-                  href="#projects"
+                <Link
+                  href="/projects"
                   className="group inline-flex h-12 items-center justify-center gap-2 border border-border bg-ink px-6 font-mono text-xs font-semibold tracking-wider text-bg uppercase transition-colors duration-200 hover:bg-lime hover:text-ink"
                 >
                   <span>Explore Projects</span>
@@ -65,7 +77,7 @@ export function Hero() {
                     className="arrow-shift arrow-shift-up-right h-4 w-4"
                     aria-hidden="true"
                   />
-                </a>
+                </Link>
                 <a
                   href={resumeHref}
                   download={SITE_CONFIG.resumeFilename}
@@ -98,17 +110,17 @@ export function Hero() {
                 </div>
                 <div className="col-span-2 sm:col-span-1">
                   <span className="block text-[10px] tracking-widest uppercase">
-                    FOCUS
+                    OFF-SCREEN
                   </span>
                   <span className="mt-0.5 block font-medium text-ink">
-                    Inference · Voice · Agents
+                    Football · Anime · Books
                   </span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right column: Geometric Engineering Diagram */}
+          {/* Right column: Framed Portrait + Compact Pipeline Diagram */}
           <div className="lg:col-span-5">
             <GeometricHeroArt />
           </div>

@@ -54,7 +54,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
       <div className="border-b border-border bg-surface">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-3.5 font-mono text-xs sm:px-6 lg:px-8">
           <Link
-            href="/#projects"
+            href="/projects"
             className="group inline-flex items-center gap-2 font-medium text-ink transition-colors duration-200 hover:bg-lime px-1.5 py-0.5"
           >
             <ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" />
@@ -337,7 +337,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
           className="grid grid-cols-1 border border-border bg-bg sm:grid-cols-2"
         >
           <Link
-            href="/#projects"
+            href="/projects"
             className="group flex items-center justify-between border-b border-border p-6 transition-colors duration-200 hover:bg-surface sm:border-r sm:border-b-0"
           >
             <div>

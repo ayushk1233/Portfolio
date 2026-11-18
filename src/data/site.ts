@@ -1,7 +1,7 @@
 export interface NavItem {
   label: string;
   href: string;
-  sectionId: string;
+  matchPrefix: string;
 }
 
 export interface HighlightMetric {
@@ -33,11 +33,10 @@ export const SITE_CONFIG = {
 } as const;
 
 export const NAV_ITEMS: NavItem[] = [
-  { label: "Home", href: "/#home", sectionId: "home" },
-  { label: "Projects", href: "/#projects", sectionId: "projects" },
-  { label: "Experience", href: "/#experience", sectionId: "experience" },
-  { label: "Beyond Code", href: "/#beyond-code", sectionId: "beyond-code" },
-  { label: "Contact", href: "/#contact", sectionId: "contact" },
+  { label: "Home", href: "/", matchPrefix: "/" },
+  { label: "Projects", href: "/projects", matchPrefix: "/projects" },
+  { label: "Experience", href: "/experience", matchPrefix: "/experience" },
+  { label: "Contact", href: "/contact", matchPrefix: "/contact" },
 ];
 
 export const ENGINEERING_METRICS: HighlightMetric[] = [
