@@ -1,7 +1,7 @@
 export function ComingSoonSign() {
   return (
     <div
-      className="flex flex-col items-center justify-center bg-surface/70 bg-swiss-grid p-6 sm:p-8"
+      className="flex h-full w-full flex-col items-center justify-center bg-surface/70 bg-swiss-grid p-6 sm:p-8"
       role="img"
       aria-label="Animated wooden plywood sign hanging on a steel nail with COMING SOON stenciled on it"
     >
