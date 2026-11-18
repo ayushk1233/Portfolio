@@ -21,6 +21,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Configure GitHub Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -36,38 +40,14 @@ jobs:
       - name: Run TypeScript type check
         run: npm run typecheck
 
-      - name: Determine GitHub Pages base path
-        id: pages-config
-        shell: bash
-        run: |
-          OWNER="${GITHUB_REPOSITORY_OWNER}"
-          REPO="${GITHUB_REPOSITORY#*/}"
-          OWNER_LOWER=$(echo "$OWNER" | tr '[:upper:]' '[:lower:]')
-          REPO_LOWER=$(echo "$REPO" | tr '[:upper:]' '[:lower:]')
-
-          if [ -f "public/CNAME" ]; then
-            CUSTOM_DOMAIN=$(tr -d '[:space:]' < public/CNAME)
-            echo "base_path=" >> "$GITHUB_OUTPUT"
-            echo "site_url=https://${CUSTOM_DOMAIN}" >> "$GITHUB_OUTPUT"
-          elif [ "$REPO_LOWER" = "${OWNER_LOWER}.github.io" ]; then
-            echo "base_path=" >> "$GITHUB_OUTPUT"
-            echo "site_url=https://${OWNER_LOWER}.github.io" >> "$GITHUB_OUTPUT"
-          else
-            echo "base_path=/${REPO}" >> "$GITHUB_OUTPUT"
-            echo "site_url=https://${OWNER_LOWER}.github.io/${REPO}" >> "$GITHUB_OUTPUT"
-          fi
-
       - name: Build static Next.js site
         env:
-          NEXT_PUBLIC_BASE_PATH: ${{ steps.pages-config.outputs.base_path }}
-          NEXT_PUBLIC_SITE_URL: ${{ steps.pages-config.outputs.site_url }}
+          NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+          NEXT_PUBLIC_SITE_URL: ${{ steps.pages.outputs.origin }}${{ steps.pages.outputs.base_path }}
         run: npm run build
 
       - name: Ensure .nojekyll exists in exported output
         run: touch out/.nojekyll
-
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
