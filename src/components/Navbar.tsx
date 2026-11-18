@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { SocialIconRow } from "@/components/SocialIcons";
 import { NAV_ITEMS, SITE_CONFIG } from "@/data/site";
-import { withBasePath } from "@/lib/paths";
 
 function isRouteActive(pathname: string | null, matchPrefix: string): boolean {
   const current = pathname ?? "/";
@@ -33,7 +32,7 @@ export function Navbar() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [mobileOpen]);
 
-  const resumeHref = withBasePath(SITE_CONFIG.resumePath);
+  const resumeHref = SITE_CONFIG.resumeViewUrl;
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-bg/95 backdrop-blur-[2px]">

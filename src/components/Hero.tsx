@@ -2,10 +2,9 @@ import Link from "next/link";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { GeometricHeroArt } from "@/components/GeometricHeroArt";
 import { SITE_CONFIG } from "@/data/site";
-import { withBasePath } from "@/lib/paths";
 
 export function Hero() {
-  const resumeHref = withBasePath(SITE_CONFIG.resumePath);
+  const resumeDownloadHref = SITE_CONFIG.resumeDownloadUrl;
 
   return (
     <section
@@ -86,8 +85,9 @@ export function Hero() {
                   />
                 </Link>
                 <a
-                  href={resumeHref}
-                  download={SITE_CONFIG.resumeFilename}
+                  href={resumeDownloadHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group inline-flex h-12 items-center justify-center gap-2 border border-border bg-bg px-6 font-mono text-xs font-semibold tracking-wider text-ink uppercase transition-colors duration-200 hover:bg-lime"
                 >
                   <span>Download Resume</span>

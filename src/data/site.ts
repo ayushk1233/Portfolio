@@ -26,8 +26,10 @@ export const SITE_CONFIG = {
   githubHandle: "github.com/ayushk1233",
   linkedin: "https://linkedin.com/in/ayushkumar15",
   linkedinHandle: "linkedin.com/in/ayushkumar15",
-  resumePath: "/resume/Ayush_Kumar_Resume.pdf",
-  resumeFilename: "Ayush_Kumar_Resume.pdf",
+  resumeViewUrl:
+    "https://drive.google.com/file/d/1PX3zkxaiDErcUI5zjDSeY6BbrOu7m0Wn/view?usp=drive_link",
+  resumeDownloadUrl:
+    "https://drive.google.com/uc?export=download&id=1PX3zkxaiDErcUI5zjDSeY6BbrOu7m0Wn",
   portraitPath: "/images/ayush-portrait.jpg",
   specialties: "Applied AI · Voice AI · Agentic Systems · MLOps",
 } as const;

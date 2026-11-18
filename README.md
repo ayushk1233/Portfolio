@@ -90,4 +90,4 @@ Set `liveUrl` only if a verified live deployment exists; omit it otherwise.
 
 ### How to Update Your Resume
 
-Replace `public/resume/Ayush_Kumar_Resume.pdf` with your latest PDF file using the same filename, or update `resumePath` and `resumeFilename` in `src/data/site.ts`. Both the navigation `Resume ↗` link and hero `Download Resume ↓` button reference this path automatically.
+Update `resumeViewUrl` and `resumeDownloadUrl` inside `src/data/site.ts`. The navigation `Resume ↗` button opens `resumeViewUrl`, while the Hero and Contact `Download Resume ↓` buttons trigger a direct download via `resumeDownloadUrl`.

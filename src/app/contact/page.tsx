@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { ArrowDown } from "lucide-react";
 import { Contact } from "@/components/Contact";
 import { SITE_CONFIG } from "@/data/site";
-import { withBasePath } from "@/lib/paths";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -11,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  const resumeHref = withBasePath(SITE_CONFIG.resumePath);
+  const resumeDownloadHref = SITE_CONFIG.resumeDownloadUrl;
 
   return (
     <section className="bg-bg" aria-label="Contact">
@@ -29,8 +28,9 @@ export default function ContactPage() {
             </p>
           </div>
           <a
-            href={resumeHref}
-            download={SITE_CONFIG.resumeFilename}
+            href={resumeDownloadHref}
+            target="_blank"
+            rel="noopener noreferrer"
             className="group inline-flex h-11 shrink-0 items-center gap-2 border border-border bg-bg px-5 font-mono text-xs font-semibold tracking-wider text-ink uppercase transition-colors duration-200 hover:bg-lime"
           >
             <span>Download Resume</span>
