@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" fill="#F8F7F2" />
+  <rect x="2" y="2" width="60" height="60" fill="none" stroke="#292929" stroke-width="4" />
+  <rect x="10" y="10" width="12" height="12" fill="#C7FF35" stroke="#292929" stroke-width="2.5" />
+  <line x1="10" y1="30" x2="54" y2="30" stroke="#292929" stroke-width="2" />
+  <text x="10" y="52" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="700" fill="#171717" letter-spacing="-1">AK.</text>
+</svg>

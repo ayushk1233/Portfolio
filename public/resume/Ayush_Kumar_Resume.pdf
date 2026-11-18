@@ -1,0 +1,130 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+6 0 obj
+<< /Length 12078 >>
+stream
+BT /F2 16.50 Tf 0.04 g 1 0 0 1 255.18 762.00 Tm (AYUSH KUMAR) Tj ET
+BT /F2 8.10 Tf 0.14 g 1 0 0 1 72.40 748.00 Tm (AI/ML Engineer | Deep Learning | LLMs & AI Agents | Speech AI | Model Training, Evaluation & Deployment) Tj ET
+BT /F1 7.90 Tf 0.22 g 1 0 0 1 69.00 736.00 Tm (Gurugram, Haryana  |  +91-9955025515  |  ayushk1503@gmail.com  |  linkedin.com/in/ayushkumar15  |  github.com/ayushk1233) Tj ET
+BT /F2 8.40 Tf 0.05 g 1 0 0 1 32.00 724.00 Tm (SUMMARY) Tj ET
+0.60 w 0.18 G 32.00 721.50 m 580.00 721.50 l S
+BT /F1 7.40 Tf 0.12 g 1 0 0 1 32.00 713.00 Tm (AI/ML Engineer who takes models from research to production: fine-tuning, evaluation, GPU inference at scale and cloud deployment.) Tj ET
+BT /F1 7.40 Tf 0.12 g 1 0 0 1 32.00 704.20 Tm (Shipped systems across LLM agents and RAG, speech \(ASR, TTS, diarization\) and computer vision, each measured against a baseline.) Tj ET
+BT /F2 8.40 Tf 0.05 g 1 0 0 1 32.00 689.40 Tm (TECHNICAL SKILLS) Tj ET
+0.60 w 0.18 G 32.00 686.90 m 580.00 686.90 l S
+BT /F2 7.30 Tf 0.05 g 1 0 0 1 32.00 678.40 Tm (Languages:) Tj ET
+BT /F1 7.30 Tf 0.12 g 1 0 0 1 77.11 678.40 Tm (Python, C++, SQL) Tj ET
+BT /F2 7.30 Tf 0.05 g 1 0 0 1 32.00 669.70 Tm (ML & Deep Learning:) Tj ET
+BT /F1 7.30 Tf 0.12 g 1 0 0 1 115.21 669.70 Tm (PyTorch, Hugging Face Transformers, PEFT \(LoRA/QLoRA\), Accelerate \(DDP, mixed precision\), TensorFlow, ONNX Runtime,) Tj ET
+BT /F1 7.30 Tf 0.12 g 1 0 0 1 32.00 661.00 Tm (GGUF quantization, GPU batching & profiling, NLP, CV) Tj ET
+BT /F2 7.30 Tf 0.05 g 1 0 0 1 32.00 652.30 Tm (LLM & AI Systems:) Tj ET
+BT /F1 7.30 Tf 0.12 g 1 0 0 1 106.74 652.30 Tm (LangGraph, LangChain, RAG, embeddings, vector DBs \(Pinecone, FAISS\), agentic workflows, prompt regression testing) Tj ET
+BT /F2 7.30 Tf 0.05 g 1 0 0 1 32.00 643.60 Tm (Speech & Audio ML:) Tj ET
+BT /F1 7.30 Tf 0.12 g 1 0 0 1 110.98 643.60 Tm (ASR, TTS \(flow matching\), speaker diarization, VAD, forced alignment; WER/CER, DER/JER, cpWER, speaker similarity) Tj ET
+BT /F2 7.30 Tf 0.05 g 1 0 0 1 32.00 634.90 Tm (Backend & Cloud:) Tj ET
+BT /F1 7.30 Tf 0.12 g 1 0 0 1 102.51 634.90 Tm (FastAPI, Celery, Redis, PostgreSQL, async I/O, WebSockets, WebRTC, SSE; AWS \(ECS Fargate, EKS, Lambda, ECR\), RunPod,) Tj ET
+BT /F1 7.30 Tf 0.12 g 1 0 0 1 32.00 626.20 Tm (Kaggle, Docker, Kubernetes, Terraform, GitHub Actions, Prometheus, Grafana) Tj ET
+BT /F2 8.40 Tf 0.05 g 1 0 0 1 32.00 611.50 Tm (EXPERIENCE) Tj ET
+0.60 w 0.18 G 32.00 609.00 m 580.00 609.00 l S
+BT /F2 7.80 Tf 0.05 g 1 0 0 1 32.00 600.50 Tm (Josh Talks) Tj ET
+BT /F1 7.50 Tf 0.22 g 1 0 0 1 78.90 600.50 Tm (| AI Product, Speech AI / ML Engineering) Tj ET
+BT /F2 7.50 Tf 0.12 g 1 0 0 1 505.75 600.50 Tm (Aug 2026 - Present) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 591.70 Tm (- Built multilingual ASR inference over ~40K audio files in 5 languages \(NVIDIA Nemotron 3.5 Streaming ASR 0.6B, remote RTX 4090s\) with) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 583.30 Tm (  async prefetch, duration bucketing, dynamic batching and checkpointed resume; processed 23K files in ~1.5 hours at ~34x real-time.) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 574.30 Tm (- Root-caused a production inference crash to a 32-bit integer overflow in the PyTorch C++ path \(tensors beyond ~2.14B elements\), not) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 565.90 Tm (  GPU VRAM exhaustion; shipped adaptive batch throttling and file-level checkpointing, completing the run with zero reprocessing.) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 556.90 Tm (- Automated GPU-parallel diarization QC for ~1,500 Hindi recordings \(Pyannote 3.1, 3 spawn-safe concurrent processes\), cutting runtime) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 548.50 Tm (  from several hours to ~41 minutes; scored 5 acoustic signals into a penalty-based PASS/REVIEW/FAIL engine.) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 539.50 Tm (- Engineered diarization ground truth fusing GCC-PHAT sync, energy hysteresis, Silero VAD and MMS forced alignment into QC-checked) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 531.10 Tm (  RTTM/UEM references; built an evaluation harness covering DER, JER, cpWER, purity/coverage and overlap DER with scorer self-tests.) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 522.10 Tm (- Ran blind pairwise TTS human-preference benchmarking across multiple TTS systems, scoring naturalness and tagging 5 failure modes) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 513.70 Tm (  \(prosody, hallucination, mispronunciation, emotion mismatch, code-switching\) for Bradley-Terry ranking.) Tj ET
+BT /F2 7.80 Tf 0.05 g 1 0 0 1 32.00 502.70 Tm (ATG / Banao Technologies) Tj ET
+BT /F1 7.50 Tf 0.22 g 1 0 0 1 138.96 502.70 Tm (| Applied AI Engineer Intern) Tj ET
+BT /F2 7.50 Tf 0.12 g 1 0 0 1 501.62 502.70 Tm (Nov 2025 - May 2026) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 493.90 Tm (- Engineered a split-runtime serverless audio pipeline \(FFmpeg, Faster-Whisper ASR, Pyannote diarization on RunPod GPUs\), cutting active) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 485.50 Tm (  compute to 3-4 min/meeting; added SpeechBrain ECAPA-TDNN identity gating \(0.90 threshold\), with 0 misattributed speakers in 120) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 477.10 Tm (  meetings.) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 468.10 Tm (- Built a streaming speech-to-speech voice agent at sub-800ms end-to-end latency using the Gemini Live API, LangGraph stateful) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 459.70 Tm (  orchestration, WebRTC transport and Pinecone cross-session memory.) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 450.70 Tm (- Owned the ML integration layer for a multilingual AI interview platform: Sarvam API transcription \(40% lower token consumption\) and) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 442.30 Tm (  computer-vision checks for phone use and lip-sync mismatch \(deepfake signals\) at less than 2% false positives on 400 labelled) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 433.90 Tm (  sessions.) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 424.90 Tm (- Curated a 5,000+ coding-challenge bank with Pinecone retrieval so evaluations used only vetted questions; deployed microservices on) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 416.50 Tm (  AWS \(ECS Fargate, ECR, Lambda\) with GitHub Actions CI/CD, autoscaling from 2 to 6 ECS tasks \(3x\) at peak and cutting deploy time from) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 408.10 Tm (  12 to 9 min \(25%\).) Tj ET
+BT /F2 7.80 Tf 0.05 g 1 0 0 1 32.00 397.10 Tm (BlockseBlock) Tj ET
+BT /F1 7.50 Tf 0.22 g 1 0 0 1 87.48 397.10 Tm (| AI and Decentralized Systems Intern) Tj ET
+BT /F2 7.50 Tf 0.12 g 1 0 0 1 501.62 397.10 Tm (Aug 2025 - Oct 2025) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 388.30 Tm (- Fine-tuned Llama 3 8B with QLoRA on 8K clinical Q&A and summarization examples, raising held-out answer accuracy from 61% to 78% on a) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 379.90 Tm (  single 24 GB GPU.) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 370.90 Tm (- Deployed quantized models on memory-constrained edge hardware \(GGUF via Ollama, ONNX Runtime export\) and enforced JSON-schema-) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 362.50 Tm (  validated LangChain prompts for clinical data extraction, cutting mis-routed requests 35% \(20% to 13% of 1,000 test queries\).) Tj ET
+BT /F2 8.40 Tf 0.05 g 1 0 0 1 32.00 347.50 Tm (SELECTED PROJECTS) Tj ET
+0.60 w 0.18 G 32.00 345.00 m 580.00 345.00 l S
+BT /F2 7.80 Tf 0.05 g 1 0 0 1 32.00 336.50 Tm (Indic Speech Dubbing & TTS Fine-tuning) Tj ET
+BT /F1 7.50 Tf 0.22 g 1 0 0 1 199.02 336.50 Tm (| PyTorch, IndicF5, Faster-Whisper, IndicTrans2, PEFT, Accelerate) Tj ET
+BT /F2 7.50 Tf 0.12 g 1 0 0 1 505.75 336.50 Tm (Sep 2026 - Present) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 327.70 Tm (- Built an end-to-end video dubbing pipeline \(FFmpeg, Faster-Whisper ASR, IndicTrans2, IndicF5 zero-shot voice cloning, timing-) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 319.30 Tm (  preserving assembly and remux\) that closes a measured 1.2x Hindi-vs-English speech-length gap through duration-model-scored) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 310.90 Tm (  translation candidates; first fully automatic dub landed 14/14 segments with zero drift, with Whisper CER content QC.) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 301.90 Tm (- Building an open-source LoRA fine-tuning stack for IndicF5 \(337M-param flow-matching DiT\) for accent-faithful Indian English, zero-) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 293.50 Tm (  shot: 2xT4 DDP, fp16, EMA, bit-exact resume, NaN rollback, a 14-check GPU pre-flight suite and 135 tests. github.com/ayushk1233/indic-) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 285.10 Tm (  dub-pipeline) Tj ET
+BT /F2 7.80 Tf 0.05 g 1 0 0 1 32.00 276.10 Tm (Competitor Intelligence Monitor) Tj ET
+BT /F1 7.50 Tf 0.22 g 1 0 0 1 168.99 276.10 Tm (| LangGraph, FastAPI, Celery, Redis, Next.js, Grafana) Tj ET
+BT /F2 7.50 Tf 0.12 g 1 0 0 1 501.62 276.10 Tm (Feb 2026 - Jul 2026) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 267.30 Tm (- Shipped an autonomous agentic monitor over 20+ sources for signal extraction, strategic drift detection and battlecard generation) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 258.90 Tm (  \(~20K tokens/run\), holding a 0.80+ benchmark score under prompt regression testing; launched the full stack with real-time alerting) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 250.50 Tm (  and Grafana dashboards across 14+ metrics. github.com/ayushk1233/Competitor-Intelligence-Monitor) Tj ET
+BT /F2 7.80 Tf 0.05 g 1 0 0 1 32.00 241.50 Tm (Multi-Agent RAG Platform) Tj ET
+BT /F1 7.50 Tf 0.22 g 1 0 0 1 138.96 241.50 Tm (| FastAPI, Streamlit, FAISS, Redis, PostgreSQL, SSE) Tj ET
+BT /F2 7.50 Tf 0.12 g 1 0 0 1 501.62 241.50 Tm (Apr 2026 - May 2026) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 232.70 Tm (- Architected a 4-agent RAG pipeline \(decomposition, retrieval, synthesis, critique\) with claim-level provenance and hybrid FAISS/web) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 224.30 Tm (  routing, cutting ungrounded claims from 18% to 7% vs. a single-agent baseline on a 200-question eval set; instrumented SSE streaming) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 215.90 Tm (  with per-agent latency and token telemetry. github.com/ayushk1233/mega-ai) Tj ET
+BT /F2 8.40 Tf 0.05 g 1 0 0 1 32.00 200.90 Tm (ACHIEVEMENTS, PUBLICATIONS & OPEN SOURCE) Tj ET
+0.60 w 0.18 G 32.00 198.40 m 580.00 198.40 l S
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 189.90 Tm (- Kaggle: Top 3% of 2,500+ teams \(Beats-per-Minute prediction\); Top 10 of 500+ teams \(Chatbot Arena preference modelling\); Top 1% of) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 181.50 Tm (  1,000 \(Google AI Agents Intensive\).) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 172.50 Tm (- Hackathons: Finalist, National AI Hackathon \(500+ teams, enterprise Voice AI platform\); Runner-up, HackAithon \(LLM benchmarking\).) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 163.50 Tm (- Publications: Cryptography Integration for Data Encryption and Secure Communication - accepted, IC3SE 2024 \(Amity University\); PPE Kit) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 155.10 Tm (  Compliance Detection via Extended Object Detection - submitted, AI Summit 2025 \(Bennett University, IEEE #66170\).) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 146.10 Tm (- Open Source \(core contributor\): Aden Hive - MCP tool integrations with state persistence for the agent runtime harness; Bindu - DSPy) Tj ET
+BT /F1 7.20 Tf 0.12 g 1 0 0 1 35.00 137.70 Tm (  adapter and expanded gRPC test coverage for DID-based A2A communication.) Tj ET
+BT /F2 8.40 Tf 0.05 g 1 0 0 1 32.00 122.70 Tm (EDUCATION) Tj ET
+0.60 w 0.18 G 32.00 120.20 m 580.00 120.20 l S
+BT /F2 7.80 Tf 0.05 g 1 0 0 1 32.00 111.70 Tm (Lovely Professional University) Tj ET
+BT /F1 7.50 Tf 0.22 g 1 0 0 1 164.70 111.70 Tm (| B.Tech, Computer Science and Engineering | CGPA: 8.72) Tj ET
+BT /F2 7.50 Tf 0.12 g 1 0 0 1 534.62 111.70 Tm (2022 - 2026) Tj ET
+BT /F1 7.90 Tf 0.15 g 1 0 0 1 32.00 102.90 Tm (Delhi Public School, Bokaro - Class XII: 93.0%  |  The Pentecostal Assembly School, Bokaro - Class X: 94.4%) Tj ET
+endstream
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000251 00000 n 
+0000000348 00000 n 
+0000000450 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+12581
+%%EOF

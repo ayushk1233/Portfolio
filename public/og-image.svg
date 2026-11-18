@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#F8F7F2" />
+  <!-- Outer frame -->
+  <rect x="40" y="40" width="1120" height="550" fill="none" stroke="#292929" stroke-width="2" />
+  <!-- Top bar -->
+  <line x1="40" y1="112" x2="1160" y2="112" stroke="#292929" stroke-width="1.5" />
+  <rect x="72" y="66" width="18" height="18" fill="#171717" />
+  <text x="102" y="83" font-family="ui-monospace, monospace" font-size="22" font-weight="700" fill="#171717">AK.</text>
+  <text x="1128" y="82" text-anchor="end" font-family="ui-monospace, monospace" font-size="16" fill="#626262">AYUSH KUMAR / AI ML ENGINEER</text>
+  <!-- Vertical divider -->
+  <line x1="760" y1="112" x2="760" y2="590" stroke="#292929" stroke-width="1.5" />
+  <!-- Left content -->
+  <text x="76" y="210" font-family="ui-monospace, monospace" font-size="16" fill="#626262" letter-spacing="2">PORTFOLIO // 2026</text>
+  <text x="72" y="295" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="700" fill="#171717" letter-spacing="-2">I build AI systems.</text>
+  <rect x="72" y="324" width="490" height="84" fill="#C7FF35" stroke="#292929" stroke-width="2" />
+  <text x="90" y="388" font-family="system-ui, -apple-system, sans-serif" font-size="68" font-weight="700" fill="#171717" letter-spacing="-2">Not just demos.</text>
+  <text x="76" y="476" font-family="ui-monospace, monospace" font-size="20" fill="#626262">Applied AI · Voice AI · Agentic Systems · MLOps</text>
+  <!-- Right geometric diagram -->
+  <rect x="810" y="168" width="130" height="80" fill="#EFEFEA" stroke="#292929" stroke-width="1.5" />
+  <text x="826" y="202" font-family="ui-monospace, monospace" font-size="13" fill="#626262">01 / INGEST</text>
+  <text x="826" y="226" font-family="ui-monospace, monospace" font-size="15" font-weight="700" fill="#171717">ASR · RAG</text>
+
+  <rect x="990" y="168" width="120" height="80" fill="#C7FF35" stroke="#292929" stroke-width="1.5" />
+  <text x="1006" y="202" font-family="ui-monospace, monospace" font-size="13" fill="#171717">02 / EVAL</text>
+  <text x="1006" y="226" font-family="ui-monospace, monospace" font-size="15" font-weight="700" fill="#171717">~34x RT</text>
+
+  <line x1="940" y1="208" x2="990" y2="208" stroke="#292929" stroke-width="1.5" />
+  <line x1="875" y1="248" x2="875" y2="330" stroke="#292929" stroke-width="1.5" />
+  <line x1="1050" y1="248" x2="1050" y2="330" stroke="#292929" stroke-width="1.5" />
+
+  <circle cx="962" cy="390" r="88" fill="none" stroke="#292929" stroke-width="1.5" stroke-dasharray="6 4" />
+  <rect x="862" y="346" width="200" height="88" fill="#F8F7F2" stroke="#292929" stroke-width="2" />
+  <text x="882" y="382" font-family="ui-monospace, monospace" font-size="13" fill="#626262">PROD RUNTIME</text>
+  <text x="882" y="410" font-family="ui-monospace, monospace" font-size="18" font-weight="700" fill="#171717">PyTorch · LangGraph</text>
+
+  <rect x="810" y="512" width="18" height="18" fill="#C7FF35" stroke="#292929" stroke-width="1.5" />
+  <text x="842" y="527" font-family="ui-monospace, monospace" font-size="14" fill="#626262">github.com/ayushk1233</text>
+</svg>
