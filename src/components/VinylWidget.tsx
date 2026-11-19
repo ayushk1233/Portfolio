@@ -188,7 +188,7 @@ export function VinylWidget() {
               <p className="mt-0.5 truncate text-xs font-bold text-bg">
                 {track.title}
               </p>
-              <p className="truncate font-mono text-[11px] font-medium text-flame">
+              <p className="truncate font-mono text-[11px] font-semibold text-[#FF4D1A]">
                 {track.artist}
               </p>
             </div>
@@ -316,13 +316,13 @@ export function VinylWidget() {
 
             {/* Metadata */}
             <div className="min-w-0 flex-1">
-              <span className="inline-block border border-flame/50 bg-flame/15 px-1.5 py-0.5 font-mono text-[9px] font-semibold tracking-wider text-flame uppercase">
+              <span className="inline-block border border-[#FF4D1A]/50 bg-[#FF4D1A]/15 px-1.5 py-0.5 font-mono text-[9px] font-semibold tracking-wider text-[#FF4D1A] uppercase">
                 {track.primaryArtist}
               </span>
               <h3 className="mt-2 line-clamp-2 text-sm leading-snug font-bold text-bg">
                 {track.title}
               </h3>
-              <p className="mt-1 truncate font-mono text-[11px] text-bg/75">
+              <p className="mt-1 truncate font-mono text-[11px] font-semibold text-[#FF4D1A]">
                 {track.artist}
               </p>
               <p className="mt-1 truncate font-mono text-[10px] text-bg/50">
@@ -465,7 +465,7 @@ export function VinylWidget() {
           <span className="mt-0.5 block truncate font-sans text-xs font-semibold text-bg">
             {track.title}
           </span>
-          <span className="block truncate font-mono text-[10px] text-bg/65 transition-colors duration-200 group-hover:text-flame/90">
+          <span className="block truncate font-mono text-[10px] font-semibold text-[#FF4D1A] transition-colors duration-200">
             {track.primaryArtist}
           </span>
         </span>
