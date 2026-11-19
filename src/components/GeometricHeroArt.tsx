@@ -32,11 +32,11 @@ export function GeometricHeroArt() {
         />
 
         {/* Crisp bordered portrait box */}
-        <figure className="relative overflow-hidden border border-border bg-surface shadow-[5px_5px_0_0_#292929]">
-          {/* Top-left electric lime index tag */}
+        <figure className="relative overflow-hidden border border-border bg-surface shadow-[5px_5px_0_0_var(--shadow-color)]">
+          {/* Top-left accent index tag */}
           <div className="absolute top-0 left-0 z-10 flex items-center gap-1.5 border-r border-b border-border bg-lime px-2.5 py-1 font-mono text-[10px] font-bold tracking-[0.12em] text-ink uppercase">
             <span>AK.</span>
-            <span className="text-ink/70">{"// AI·ML"}</span>
+            <span className="opacity-75">{"// AI·ML"}</span>
           </div>
 
           {/* Portrait image */}
@@ -45,9 +45,9 @@ export function GeometricHeroArt() {
             <img
               src={portraitSrc}
               alt="Ayush Kumar — AI/ML Engineer"
-              width={747}
-              height={1000}
-              className="h-full w-full object-cover object-[50%_20%] contrast-[1.03] saturate-[0.9] transition-all duration-300 hover:saturate-100"
+              width={777}
+              height={1024}
+              className="h-full w-full object-cover object-[50%_35%] transition-all duration-300"
               loading="eager"
               decoding="async"
             />
@@ -82,7 +82,7 @@ export function GeometricHeroArt() {
               y1="27"
               x2="276"
               y2="27"
-              stroke="#292929"
+              stroke="var(--border)"
               strokeWidth="1.25"
             />
 
@@ -92,8 +92,8 @@ export function GeometricHeroArt() {
               y="9"
               width="82"
               height="36"
-              fill="#EFEFEA"
-              stroke="#292929"
+              fill="var(--surface)"
+              stroke="var(--border)"
               strokeWidth="1.25"
             />
             <text
@@ -101,7 +101,7 @@ export function GeometricHeroArt() {
               y="23"
               fontFamily="var(--font-geist-mono), monospace"
               fontSize="7.5"
-              fill="#626262"
+              fill="var(--muted)"
             >
               01 / INPUT
             </text>
@@ -111,7 +111,7 @@ export function GeometricHeroArt() {
               fontFamily="var(--font-geist-mono), monospace"
               fontSize="9"
               fontWeight="700"
-              fill="#171717"
+              fill="var(--ink)"
             >
               ASR · RAG
             </text>
@@ -122,8 +122,8 @@ export function GeometricHeroArt() {
               y="9"
               width="86"
               height="36"
-              fill="#171717"
-              stroke="#292929"
+              fill="var(--ink)"
+              stroke="var(--border)"
               strokeWidth="1.25"
             />
             <text
@@ -131,7 +131,7 @@ export function GeometricHeroArt() {
               y="23"
               fontFamily="var(--font-geist-mono), monospace"
               fontSize="7.5"
-              fill="#C7FF35"
+              fill="var(--lime)"
             >
               02 / CORE
             </text>
@@ -141,19 +141,19 @@ export function GeometricHeroArt() {
               fontFamily="var(--font-geist-mono), monospace"
               fontSize="9"
               fontWeight="700"
-              fill="#F8F7F2"
+              fill="var(--bg)"
             >
               ~34× RT
             </text>
 
-            {/* Node 3: Eval Gate (Lime) */}
+            {/* Node 3: Eval Gate */}
             <rect
               x="218"
               y="9"
               width="58"
               height="36"
-              fill="#C7FF35"
-              stroke="#292929"
+              fill="var(--lime)"
+              stroke="var(--border)"
               strokeWidth="1.25"
             />
             <text
@@ -162,7 +162,7 @@ export function GeometricHeroArt() {
               fontFamily="var(--font-geist-mono), monospace"
               fontSize="7.5"
               fontWeight="600"
-              fill="#171717"
+              fill="#121212"
             >
               EVAL
             </text>
@@ -172,7 +172,7 @@ export function GeometricHeroArt() {
               fontFamily="var(--font-geist-mono), monospace"
               fontSize="9"
               fontWeight="700"
-              fill="#171717"
+              fill="#121212"
             >
               GATE
             </text>
@@ -183,17 +183,25 @@ export function GeometricHeroArt() {
               y="9"
               width="64"
               height="36"
-              fill="#F8F7F2"
-              stroke="#292929"
+              fill="var(--surface)"
+              stroke="var(--border)"
               strokeWidth="1.25"
             />
-            <rect x="344" y="14" width="7" height="7" fill="#C7FF35" stroke="#292929" strokeWidth="1" />
+            <rect
+              x="344"
+              y="14"
+              width="7"
+              height="7"
+              fill="var(--lime)"
+              stroke="var(--border)"
+              strokeWidth="1"
+            />
             <text
               x="302"
               y="23"
               fontFamily="var(--font-geist-mono), monospace"
               fontSize="7.5"
-              fill="#626262"
+              fill="var(--muted)"
             >
               PROD
             </text>
@@ -203,13 +211,13 @@ export function GeometricHeroArt() {
               fontFamily="var(--font-geist-mono), monospace"
               fontSize="8.5"
               fontWeight="700"
-              fill="#171717"
+              fill="var(--ink)"
             >
               &lt;800ms
             </text>
 
-            {/* Slow-moving lime signal dot along bus */}
-            <circle r="3.2" fill="#C7FF35" stroke="#171717" strokeWidth="1.2">
+            {/* Slow-moving accent signal dot along bus */}
+            <circle r="3.2" fill="var(--lime)" stroke="var(--ink)" strokeWidth="1.2">
               <animateMotion dur="8s" repeatCount="indefinite">
                 <mpath href="#hero-mini-bus" />
               </animateMotion>

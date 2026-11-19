@@ -35,7 +35,7 @@ export function ComingSoonSign() {
             y1="26"
             x2="96"
             y2="112"
-            stroke="#292929"
+            stroke="var(--border)"
             strokeWidth="2.4"
           />
           <line
@@ -43,7 +43,7 @@ export function ComingSoonSign() {
             y1="26"
             x2="304"
             y2="112"
-            stroke="#292929"
+            stroke="var(--border)"
             strokeWidth="2.4"
           />
 
@@ -53,7 +53,7 @@ export function ComingSoonSign() {
             y="112"
             width="316"
             height="148"
-            fill="#171717"
+            fill="var(--ink)"
             fillOpacity="0.18"
           />
 
@@ -61,13 +61,13 @@ export function ComingSoonSign() {
           <path
             d="M42 252 L358 252 L364 258 L48 258 Z"
             fill="url(#plywood-edge)"
-            stroke="#292929"
+            stroke="var(--border)"
             strokeWidth="1.5"
           />
           <path
             d="M358 106 L364 112 L364 258 L358 252 Z"
             fill="#8D683B"
-            stroke="#292929"
+            stroke="var(--border)"
             strokeWidth="1.5"
           />
 
@@ -78,7 +78,7 @@ export function ComingSoonSign() {
             width="316"
             height="146"
             fill="url(#plywood-face)"
-            stroke="#292929"
+            stroke="var(--border)"
             strokeWidth="2.2"
           />
 
@@ -139,7 +139,7 @@ export function ComingSoonSign() {
             width="292"
             height="122"
             fill="none"
-            stroke="#292929"
+            stroke="var(--border)"
             strokeWidth="1.2"
             strokeDasharray="6 4"
           />
@@ -149,27 +149,27 @@ export function ComingSoonSign() {
             cx="96"
             cy="116"
             r="5.5"
-            fill="#292929"
-            stroke="#F8F7F2"
+            fill="var(--border)"
+            stroke="var(--bg)"
             strokeWidth="1.2"
           />
           <circle
             cx="304"
             cy="116"
             r="5.5"
-            fill="#292929"
-            stroke="#F8F7F2"
+            fill="var(--border)"
+            stroke="var(--bg)"
             strokeWidth="1.2"
           />
 
-          {/* Small electric-lime builder tag taped on board */}
+          {/* Accent builder tag taped on board */}
           <rect
             x="138"
             y="130"
             width="124"
             height="20"
-            fill="#C7FF35"
-            stroke="#292929"
+            fill="var(--lime)"
+            stroke="var(--border)"
             strokeWidth="1.4"
           />
           <text
@@ -179,7 +179,7 @@ export function ComingSoonSign() {
             fontFamily="var(--font-geist-mono), monospace"
             fontSize="9.5"
             fontWeight="700"
-            fill="#171717"
+            fill="#121212"
             letterSpacing="1.2"
           >
             AGENTLAB // V1
@@ -205,7 +205,7 @@ export function ComingSoonSign() {
             y1="208"
             x2="312"
             y2="208"
-            stroke="#292929"
+            stroke="var(--border)"
             strokeWidth="1.2"
           />
           <text

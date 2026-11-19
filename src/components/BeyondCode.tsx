@@ -110,7 +110,7 @@ export function BeyondCode() {
             key={photo.id}
             type="button"
             onClick={() => setActiveIndex(idx)}
-            className="group flex flex-col border border-border bg-bg text-left transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[3px_3px_0_0_#292929]"
+            className="group flex flex-col border border-border bg-bg text-left transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[3px_3px_0_0_var(--shadow-color)]"
             aria-label={`View photo ${photo.index}: ${photo.tag}`}
           >
             <div className="aspect-[4/4.6] w-full overflow-hidden bg-surface">
@@ -144,7 +144,7 @@ export function BeyondCode() {
           <button
             type="button"
             onClick={() => setShowAll(true)}
-            className="group col-span-2 flex flex-col justify-between border border-dashed border-border bg-surface/60 bg-swiss-grid p-5 text-left transition-all duration-200 hover:border-solid hover:bg-lime hover:shadow-[3px_3px_0_0_#292929]"
+            className="group col-span-2 flex flex-col justify-between border border-dashed border-border bg-surface/60 bg-swiss-grid p-5 text-left transition-all duration-200 hover:border-solid hover:bg-lime hover:shadow-[3px_3px_0_0_var(--shadow-color)]"
           >
             <div className="flex items-center justify-between font-mono text-[10px] tracking-[0.14em] text-muted uppercase group-hover:text-ink">
               <span>+06 MORE FRAMES</span>
@@ -191,7 +191,7 @@ export function BeyondCode() {
         >
           <div
             onClick={(event) => event.stopPropagation()}
-            className="flex max-h-[90vh] w-full max-w-xl flex-col border border-border bg-bg shadow-[6px_6px_0_0_#C7FF35]"
+            className="flex max-h-[90vh] w-full max-w-xl flex-col border border-border bg-bg shadow-[6px_6px_0_0_var(--lime)]"
           >
             {/* Modal top bar */}
             <div className="flex items-center justify-between border-b border-border bg-surface px-4 py-2.5 font-mono text-xs">

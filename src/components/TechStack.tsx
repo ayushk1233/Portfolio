@@ -83,7 +83,7 @@ export function TechStack() {
           onClick={() => setSelectedId("all")}
           className={`inline-flex h-9 items-center gap-2 border border-border px-3 font-mono text-[11px] font-semibold tracking-wider uppercase transition-all duration-200 ${
             selectedId === "all"
-              ? "bg-lime text-ink shadow-[2px_2px_0_0_#292929]"
+              ? "bg-lime text-ink shadow-[2px_2px_0_0_var(--shadow-color)]"
               : "bg-bg text-muted hover:-translate-y-0.5 hover:text-ink"
           }`}
         >
@@ -104,7 +104,7 @@ export function TechStack() {
               onClick={() => setSelectedId(category.id)}
               className={`inline-flex h-9 items-center gap-2 border border-border px-3 font-mono text-[11px] font-semibold tracking-wider uppercase transition-all duration-200 ${
                 isActive
-                  ? "bg-lime text-ink shadow-[2px_2px_0_0_#292929]"
+                  ? "bg-lime text-ink shadow-[2px_2px_0_0_var(--shadow-color)]"
                   : "bg-bg text-muted hover:-translate-y-0.5 hover:bg-surface hover:text-ink"
               }`}
             >
@@ -135,7 +135,7 @@ export function TechStack() {
           return (
             <div
               key={category.id}
-              className={`group relative flex flex-col overflow-hidden border border-border bg-bg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[4px_4px_0_0_#292929] ${colSpanClass}`}
+              className={`group relative flex flex-col overflow-hidden border border-border bg-bg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[4px_4px_0_0_var(--shadow-color)] ${colSpanClass}`}
             >
               {/* Animated lime accent bar sweeping across top on hover */}
               <div
@@ -165,7 +165,7 @@ export function TechStack() {
                 {category.items.map((skill) => (
                   <li
                     key={skill}
-                    className="cursor-default border border-border/80 bg-bg px-2.5 py-1 font-mono text-xs text-ink transition-all duration-150 hover:-translate-y-0.5 hover:bg-lime hover:shadow-[2px_2px_0_0_#292929]"
+                    className="cursor-default border border-border/80 bg-bg px-2.5 py-1 font-mono text-xs text-ink transition-all duration-150 hover:-translate-y-0.5 hover:bg-lime hover:shadow-[2px_2px_0_0_var(--shadow-color)]"
                   >
                     {skill}
                   </li>

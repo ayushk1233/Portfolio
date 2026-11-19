@@ -155,7 +155,7 @@ export function VinylWidget() {
         <div
           role="status"
           aria-live="polite"
-          className="w-[292px] border border-flame bg-ink text-bg shadow-[4px_4px_0_0_#FF4D1A] sm:w-[320px]"
+          className="w-[292px] border border-flame bg-ink text-bg shadow-[4px_4px_0_0_var(--flame)] sm:w-[320px]"
         >
           <div className="flex items-center justify-between border-b border-white/15 bg-black/50 px-3 py-1.5 font-mono text-[10px]">
             <span className="flex items-center gap-1.5 font-semibold tracking-[0.14em] text-flame uppercase">
@@ -219,7 +219,7 @@ export function VinylWidget() {
         <div
           role="dialog"
           aria-label="Song of the Day vinyl player"
-          className="w-[306px] border border-flame bg-ink text-bg shadow-[5px_5px_0_0_#FF4D1A] sm:w-[344px]"
+          className="w-[306px] border border-flame bg-ink text-bg shadow-[5px_5px_0_0_var(--flame)] sm:w-[344px]"
         >
           {/* Top deck bar */}
           <div className="flex items-center justify-between border-b border-white/15 bg-black/50 px-3.5 py-2.5 font-mono text-[10px]">
@@ -255,7 +255,7 @@ export function VinylWidget() {
             {/* Spinning black vinyl disc with real album cover label + tonearm */}
             <div className="relative h-[106px] w-[106px] shrink-0">
               <div
-                className={`vinyl-grooves animate-vinyl-spin relative flex h-full w-full items-center justify-center rounded-full border-2 border-flame/75 shadow-[0_0_24px_rgba(255,77,26,0.22)] ${
+                className={`vinyl-grooves animate-vinyl-spin relative flex h-full w-full items-center justify-center rounded-full border-2 border-flame/75 shadow-[0_0_24px_var(--flame)] ${
                   isPlaying ? "" : "vinyl-paused"
                 }`}
               >
@@ -419,17 +419,17 @@ export function VinylWidget() {
         }}
         aria-expanded={expanded}
         aria-label={`Daily song recommendation: ${track.title} by ${track.artist}. Click to ${expanded ? "close" : "open"} vinyl player.`}
-        className={`group flex max-w-[260px] items-center gap-3 border bg-ink px-2.5 py-2 text-left text-bg transition-all duration-200 hover:-translate-y-0.5 hover:border-flame hover:shadow-[4px_4px_0_0_#FF4D1A] ${
+        className={`group flex max-w-[260px] items-center gap-3 border bg-ink px-2.5 py-2 text-left text-bg transition-all duration-200 hover:-translate-y-0.5 hover:border-flame hover:shadow-[4px_4px_0_0_var(--flame)] ${
           expanded || isPlaying
-            ? "border-flame shadow-[4px_4px_0_0_#FF4D1A]"
-            : "border-border shadow-[3px_3px_0_0_#292929]"
+            ? "border-flame shadow-[4px_4px_0_0_var(--flame)]"
+            : "border-border shadow-[3px_3px_0_0_var(--shadow-color)]"
         }`}
       >
         {/* Mini Spinning Black Vinyl Disc */}
         <span
-          className={`vinyl-grooves animate-vinyl-spin-slow relative flex h-10 w-10 shrink-0 items-center justify-center rounded-full border transition-all duration-200 group-hover:border-flame group-hover:shadow-[0_0_16px_rgba(255,77,26,0.55)] ${
+          className={`vinyl-grooves animate-vinyl-spin-slow relative flex h-10 w-10 shrink-0 items-center justify-center rounded-full border transition-all duration-200 group-hover:border-flame group-hover:shadow-[0_0_16px_var(--flame)] ${
             isPlaying
-              ? "border-flame shadow-[0_0_14px_rgba(255,77,26,0.5)]"
+              ? "border-flame shadow-[0_0_14px_var(--flame)]"
               : "border-white/20"
           }`}
         >

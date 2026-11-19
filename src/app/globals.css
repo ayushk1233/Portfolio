@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-bg: #f8f7f2;
-  --color-ink: #171717;
-  --color-lime: #c7ff35;
-  --color-flame: #ff4d1a;
-  --color-flame-ink: #d9380a;
-  --color-surface: #efefea;
-  --color-border: #292929;
-  --color-muted: #626262;
+  --color-bg: var(--bg);
+  --color-ink: var(--ink);
+  --color-lime: var(--lime);
+  --color-flame: var(--flame);
+  --color-flame-ink: var(--flame-ink);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
   --font-sans: var(--font-geist-sans), "Geist", system-ui, -apple-system, sans-serif;
   --font-mono: var(--font-geist-mono), "Geist Mono", ui-monospace, SFMono-Regular, monospace;
 }
@@ -22,6 +22,26 @@
   --surface: #efefea;
   --border: #292929;
   --muted: #626262;
+  --shadow-color: #292929;
+  --grid-line: rgba(41, 41, 41, 0.06);
+}
+
+html.dark,
+[data-theme="dark"] {
+  --bg: #0d0d0e;
+  --ink: #f5f5f0;
+  --surface: #18181b;
+  --border: #323238;
+  --muted: #9a9aa0;
+  /* Switched shades for dark theme:
+     - Lime green is used as spicy orange / flame shade (#ff4d1a)
+     - Where spicy orange / flame is used, it now uses lime green (#c7ff35)
+  */
+  --lime: #ff4d1a;
+  --flame: #c7ff35;
+  --flame-ink: #c7ff35;
+  --shadow-color: #000000;
+  --grid-line: rgba(255, 255, 255, 0.06);
 }
 
 html {
@@ -29,6 +49,7 @@ html {
   background-color: var(--bg);
   color: var(--ink);
   overflow-x: clip;
+  transition: background-color 200ms ease, color 200ms ease;
 }
 
 body {
@@ -38,11 +59,27 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: clip;
+  transition: background-color 200ms ease, color 200ms ease;
 }
 
 ::selection {
   background-color: var(--lime);
-  color: var(--ink);
+  color: #121212;
+}
+
+/* Ensure crisp contrast on accent surfaces across both themes */
+html.dark .bg-lime,
+[data-theme="dark"] .bg-lime,
+html.dark .bg-flame,
+[data-theme="dark"] .bg-flame {
+  color: #121212;
+}
+
+html.dark .hover\:bg-lime:hover,
+[data-theme="dark"] .hover\:bg-lime:hover,
+html.dark .hover\:bg-flame:hover,
+[data-theme="dark"] .hover\:bg-flame:hover {
+  color: #121212 !important;
 }
 
 /* Focus visibility for keyboard accessibility */
@@ -55,8 +92,8 @@ body {
 /* Architectural Swiss grid hairlines for subtle structural backgrounds */
 .bg-swiss-grid {
   background-image:
-    linear-gradient(to right, rgba(41, 41, 41, 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(41, 41, 41, 0.06) 1px, transparent 1px);
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
   background-size: 32px 32px;
 }
 
@@ -93,7 +130,7 @@ body {
 
 .project-card:hover {
   transform: translateY(-3px);
-  box-shadow: 4px 4px 0 0 #292929;
+  box-shadow: 4px 4px 0 0 var(--shadow-color);
 }
 
 /* Arrow translation 4px on hover */

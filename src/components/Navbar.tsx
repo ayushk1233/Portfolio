@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { SocialIconRow } from "@/components/SocialIcons";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { NAV_ITEMS, SITE_CONFIG } from "@/data/site";
 
 function isRouteActive(pathname: string | null, matchPrefix: string): boolean {
@@ -87,9 +88,10 @@ export function Navbar() {
           })}
         </div>
 
-        {/* Right: Gmail, GitHub, LinkedIn icons + Resume button */}
+        {/* Right: Gmail, GitHub, LinkedIn icons + Theme Toggle + Resume button */}
         <div className="hidden items-center gap-2 md:flex">
           <SocialIconRow size="md" />
+          <ThemeToggle />
           <a
             href={resumeHref}
             target="_blank"
@@ -104,21 +106,24 @@ export function Navbar() {
           </a>
         </div>
 
-        {/* Mobile menu trigger */}
-        <button
-          type="button"
-          onClick={() => setMobileOpen((prev) => !prev)}
-          aria-expanded={mobileOpen}
-          aria-controls="mobile-nav-menu"
-          aria-label={mobileOpen ? "Close menu" : "Open menu"}
-          className="inline-flex h-10 w-10 items-center justify-center border border-border bg-bg text-ink transition-colors duration-200 hover:bg-lime md:hidden"
-        >
-          {mobileOpen ? (
-            <X className="h-5 w-5" aria-hidden="true" />
-          ) : (
-            <Menu className="h-5 w-5" aria-hidden="true" />
-          )}
-        </button>
+        {/* Mobile controls */}
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle showLabel={false} />
+          <button
+            type="button"
+            onClick={() => setMobileOpen((prev) => !prev)}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-nav-menu"
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            className="inline-flex h-9 w-9 items-center justify-center border border-border bg-bg text-ink transition-colors duration-200 hover:bg-lime"
+          >
+            {mobileOpen ? (
+              <X className="h-5 w-5" aria-hidden="true" />
+            ) : (
+              <Menu className="h-5 w-5" aria-hidden="true" />
+            )}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile navigation drawer */}
@@ -150,14 +155,17 @@ export function Navbar() {
                 </Link>
               );
             })}
-            <div className="flex items-center justify-between gap-3 py-4">
-              <SocialIconRow size="md" />
+            <div className="flex flex-col gap-3 py-4 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex items-center justify-between gap-3">
+                <SocialIconRow size="md" />
+                <ThemeToggle />
+              </div>
               <a
                 href={resumeHref}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileOpen(false)}
-                className="inline-flex h-9 flex-1 items-center justify-center gap-1.5 border border-border bg-lime font-mono text-xs font-semibold text-ink"
+                className="inline-flex h-9 flex-1 items-center justify-center gap-1.5 border border-border bg-lime font-mono text-xs font-semibold text-ink transition-colors duration-200 hover:bg-ink hover:text-bg"
               >
                 <span>Resume</span>
                 <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
